@@ -1,0 +1,35 @@
+name: Fehler melden
+description: Etwas funktioniert in Glutnest nicht wie erwartet.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke für die Meldung! Bitte **keine echten Personendaten** (Namen, Adressen, Gesundheitsdaten) und keine Zugangsdaten eintragen. Sicherheitslücken bitte nicht hier, sondern per Mail an kontakt@glutnest.eu melden.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Steht unten auf jeder Seite bzw. unter „Über Glutnest“.
+      placeholder: z. B. 0.16.1
+    validations:
+      required: true
+  - type: textarea
+    id: was
+    attributes:
+      label: Was ist passiert?
+      description: Was hast du gemacht, was hast du erwartet, was ist stattdessen passiert?
+    validations:
+      required: true
+  - type: textarea
+    id: schritte
+    attributes:
+      label: So lässt es sich nachstellen
+      placeholder: |
+        1. Personal öffnen
+        2. …
+  - type: input
+    id: umgebung
+    attributes:
+      label: Browser und Gerät
+      placeholder: z. B. Firefox am PC, Safari auf dem iPhone
