@@ -14,8 +14,10 @@
   <a href="https://glutnest.eu"><strong>glutnest.eu</strong></a> ·
   <a href="https://glutnest.eu/roadmap/">Roadmap</a> ·
   <a href="https://github.com/siliconserver/glutnest.eu/issues">Wünsche &amp; Fehler</a> ·
-  <a href="https://glutnest.eu/#kontakt">Vorführung anfragen</a>
+  <a href="https://glutnest.eu/#kontakt">Als Interessent vormerken</a>
 </p>
+
+> **Hinweis:** Glutnest ist ein privates Projekt in Entwicklung und noch nicht käuflich zu haben. Interessierte Wehren können sich [unverbindlich vormerken lassen](https://glutnest.eu/#kontakt).
 
 ![Startseite von Glutnest mit Neuigkeiten, nächsten Terminen und fälligen Prüfungen](bilder/start.webp)
 
@@ -53,7 +55,7 @@ Hell- und Dunkelmodus, drei Oberflächen zur Wahl (Wache, Klar, Leitstand) sowie
 ## Bei euch im Haus oder in der Cloud
 
 - **On-Premises:** Glutnest läuft auf eurem eigenen Server, etwa bei der Verbandsgemeinde oder Stadt. Eine Wehr mit beliebig vielen Standorten, die Daten verlassen euer Netz nicht.
-- **Cloud:** Wir betreiben Glutnest für euch, mit Hosting ausschließlich in Deutschland. Jede Wehr ist strikt von anderen getrennt, Backups und Updates sind inklusive.
+- **Cloud (geplant):** Wir betreiben Glutnest für euch, mit Hosting ausschließlich in Deutschland. Jede Wehr ist strikt von anderen getrennt, Backups und Updates sind inklusive.
 
 ## Sicherheit & Datenschutz
 
@@ -69,10 +71,10 @@ Feuerwehren verwalten Gesundheitsdaten, Bankverbindungen und Einsatzberichte. De
 
 Glutnest wird laufend weiterentwickelt. Was fertig ist und was als Nächstes kommt, zeigt die [Roadmap](https://glutnest.eu/roadmap/). Wünsche und Fehler nehmen wir gern über die [Issues](https://github.com/siliconserver/glutnest.eu/issues/new/choose) entgegen. Bitte dabei keine echten Personendaten eintragen.
 
-## Preise & Kontakt
+## Stand & Kontakt
 
-Preise auf Anfrage. Der Preis richtet sich nach Größe der Wehr, Modulen und Betriebsart. Mehr auf **[glutnest.eu](https://glutnest.eu)**, Anfragen und Vorführungen über [kontakt@glutnest.eu](mailto:kontakt@glutnest.eu).
+Glutnest ist derzeit ein privates Projekt in Entwicklung. Der volle Umfang für den ersten Einsatz in einer Wehr ist noch nicht fertig, deshalb gibt es noch keinen Verkauf und keine Preise. Wer Interesse hat, kann sich unverbindlich über [kontakt@glutnest.eu](mailto:kontakt@glutnest.eu?subject=Interesse%20an%20Glutnest) vormerken lassen und erfährt als Erstes, wenn es losgeht. Mehr auf **[glutnest.eu](https://glutnest.eu)**.
 
 ---
 
-<sub>Dieses Repository enthält die Webseite glutnest.eu und den öffentlichen Issue-Tracker. Glutnest selbst ist proprietäre Software und nur mit Lizenz nutzbar. Hinweise zur Pflege der Webseite: [docs/webseite.md](docs/webseite.md) · [Impressum](https://glutnest.eu/impressum/) · [Datenschutz](https://glutnest.eu/datenschutz/)</sub>
+<sub>Dieses Repository enthält die Webseite glutnest.eu und den öffentlichen Issue-Tracker. Glutnest selbst ist proprietäre Software. Hinweise zur Pflege der Webseite: [docs/webseite.md](docs/webseite.md) · [Impressum](https://glutnest.eu/impressum/) · [Datenschutz](https://glutnest.eu/datenschutz/)</sub>
