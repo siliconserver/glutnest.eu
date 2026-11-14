@@ -1,38 +1,78 @@
-# glutnest.eu
+<p align="center">
+  <img src="assets/favicon.svg" width="72" height="72" alt="Glutnest-Logo">
+</p>
 
-Produkt-Webseite für Glutnest, die Feuerwehr-Verwaltung. Reines HTML/CSS ohne Build-Schritt, ohne externe Schriften, Skripte oder Tracker.
+<h1 align="center">Glutnest</h1>
 
-## Aufbau
+<p align="center">
+  <strong>Die Verwaltung für eure Feuerwehr. An einem Ort.</strong><br>
+  Personal, Einsätze, Übungen, Fahrzeuge, Geräte und Atemschutz in einer Anwendung im Browser.<br>
+  Im eigenen Haus oder in der Cloud mit Hosting ausschließlich in Deutschland.
+</p>
 
-| Pfad | Inhalt |
+<p align="center">
+  <a href="https://glutnest.eu"><strong>glutnest.eu</strong></a> ·
+  <a href="https://glutnest.eu/roadmap/">Roadmap</a> ·
+  <a href="https://github.com/siliconserver/glutnest.eu/issues">Wünsche &amp; Fehler</a> ·
+  <a href="https://glutnest.eu/#kontakt">Vorführung anfragen</a>
+</p>
+
+![Startseite von Glutnest mit Neuigkeiten, nächsten Terminen und fälligen Prüfungen](bilder/start.webp)
+
+## Warum Glutnest?
+
+Was im Gerätehaus sonst in Ordnern, Listen und Köpfen steckt, liegt in Glutnest an einem Ort. Jedes Modul greift auf dieselben Stammdaten zu: Wer im Einsatz war, steht im Bericht, im Fahrtenbuch und im Atemschutznachweis, ohne dass es dreimal eingetippt wird. Glutnest läuft im Browser, am PC wie am Handy, und lässt sich als App auf den Startbildschirm legen.
+
+## Funktionen
+
+| | |
 |---|---|
-| `index.html` | Startseite |
-| `roadmap/` | Roadmap (Stand wird von Hand gepflegt) |
-| `impressum/`, `datenschutz/` | Rechtstexte |
-| `assets/` | CSS, Hell/Dunkel-Umschalter, Favicon |
-| `bilder/` | Screenshots aus Glutnest (nur Beispieldaten, WebP) |
+| **Personal & Qualifikationen** | Mitglieder, Dienstgrade, Funktionen, Lehrgänge und Ablaufdaten. Jedes Mitglied pflegt seine eigenen Daten. |
+| **Einsatzberichte** | Kräfte, Fahrzeuge und Geräte erfassen, Freigabe von Entwurf über geprüft bis abgeschlossen, Druckansicht. |
+| **Leitstellen-Import** | Einsätze aus iSE Cobra 4 im MAÜ-XML-Format von Rheinland-Pfalz übernehmen, ohne Daten zu Meldenden oder Patienten. |
+| **Übungen & Dienste** | Dienstplanung je Standort und Gruppe, Anwesenheit per Antippen am Handy, Auswertung je Mitglied. |
+| **Fahrzeuge** | Fristen wie HU und UVV, Fahrtenbuch und Mängelmeldungen mit Einsatzbereitschaft. |
+| **Geräte & Prüfungen** | Inventar, Prüfarten nach DGUV und DIN, Prüfprotokolle, QR-Etiketten und Beladeplan. |
+| **Atemschutz** | Geräteträger mit automatisch berechneter Einsatzbereitschaft aus Lehrgang, G 26.3, Belastungsübung und Unterweisung. |
+| **Kalender** | Termine und Dienste mit Zu- und Absagen, persönliches Kalender-Abo für Handy und Outlook. |
+| **Statistik & Jahresbericht** | Zahlen je Jahr und Standort, Jahresbericht für die Versammlung als PDF. |
+| **Ehrungen & Jubiläen** | Ehrungskatalog des Landes vorbelegt, fällige Ehrungen und Jubiläen auf einen Blick. |
+| **Fälligkeiten & Erinnerungen** | Die Startseite zeigt, was im eigenen Bereich abläuft, Erinnerungen kommen per Mail. |
+| **Mitteilungen & Umfragen** | Neuigkeiten an die ganze Wehr oder einzelne Gruppen, Umfragen und Dokumentenablage. |
+| **Kleiderkammer & PSA** | Ausgabe je Mitglied, Bestand, Lebensdauer und Prüfungen der Schutzausrüstung. |
+| **Einsatzkarte** | Einsatzorte auf einer OpenStreetMap-Karte. |
+| **Automatische Backups** | Tägliche, verschlüsselte Sicherung mit Meldung, wenn etwas schiefgeht. |
 
-## Lokal ansehen
+Hell- und Dunkelmodus, drei Oberflächen zur Wahl (Wache, Klar, Leitstand) sowie Logo und Farbe je Wehr sind selbstverständlich.
 
-```sh
-python3 -m http.server 8000
-# http://localhost:8000
-```
+<p align="center">
+  <img src="bilder/personal.webp" width="49%" alt="Personalliste mit Qualifikationen und nächstem Ablauf">
+  <img src="bilder/statistik-dunkel.webp" width="49%" alt="Statistik in dunkler Darstellung">
+</p>
 
-## Veröffentlichung
+## Bei euch im Haus oder in der Cloud
 
-Jeder Push bzw. Merge nach `main` veröffentlicht die Seite automatisch über GitHub Actions (`.github/workflows/pages.yml`) auf GitHub Pages.
+- **On-Premises:** Glutnest läuft auf eurem eigenen Server, etwa bei der Verbandsgemeinde oder Stadt. Eine Wehr mit beliebig vielen Standorten, die Daten verlassen euer Netz nicht.
+- **Cloud:** Wir betreiben Glutnest für euch, mit Hosting ausschließlich in Deutschland. Jede Wehr ist strikt von anderen getrennt, Backups und Updates sind inklusive.
 
-Einmalige Einrichtung:
+## Sicherheit & Datenschutz
 
-1. Repository → Settings → Pages → Source: **GitHub Actions**.
-2. Custom domain: `glutnest.eu` (steht auch in `CNAME`), danach **Enforce HTTPS** aktivieren.
-3. DNS beim Domain-Anbieter:
-   - `glutnest.eu` A-Records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - optional AAAA: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - `www.glutnest.eu` CNAME auf `siliconserver.github.io`
-4. Empfohlen: Domain unter GitHub → Settings (Profil) → Pages verifizieren, damit niemand sonst sie übernehmen kann.
+Feuerwehren verwalten Gesundheitsdaten, Bankverbindungen und Einsatzberichte. Deshalb gilt in Glutnest:
 
-## Screenshots tauschen
+- Zwei-Faktor-Anmeldung für jedes Konto Pflicht
+- Besonders sensible Daten zusätzlich verschlüsselt
+- Lückenloses, manipulationssicheres Protokoll der Zugriffe
+- Rollen mit Lese- und Schreibrechten je Modul und Standort
+- Datensparsam von Anfang an, DSGVO ohne Kompromisse
 
-Bilder als WebP (ca. 1280 px breit) nach `bilder/` legen. Keine echten Personendaten verwenden.
+## Wie geht es weiter?
+
+Glutnest wird laufend weiterentwickelt. Was fertig ist und was als Nächstes kommt, zeigt die [Roadmap](https://glutnest.eu/roadmap/). Wünsche und Fehler nehmen wir gern über die [Issues](https://github.com/siliconserver/glutnest.eu/issues/new/choose) entgegen. Bitte dabei keine echten Personendaten eintragen.
+
+## Preise & Kontakt
+
+Preise auf Anfrage. Der Preis richtet sich nach Größe der Wehr, Modulen und Betriebsart. Mehr auf **[glutnest.eu](https://glutnest.eu)**, Anfragen und Vorführungen über [kontakt@glutnest.eu](mailto:kontakt@glutnest.eu).
+
+---
+
+<sub>Dieses Repository enthält die Webseite glutnest.eu und den öffentlichen Issue-Tracker. Glutnest selbst ist proprietäre Software und nur mit Lizenz nutzbar. Hinweise zur Pflege der Webseite: [docs/webseite.md](docs/webseite.md) · [Impressum](https://glutnest.eu/impressum/) · [Datenschutz](https://glutnest.eu/datenschutz/)</sub>
