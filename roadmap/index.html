@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glutnest – Roadmap</title>
+<meta name="description" content="Roadmap von Glutnest: was fertig ist, woran gearbeitet wird und was geplant ist.">
+<link rel="canonical" href="https://glutnest.eu/roadmap/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  color-scheme: light dark;
+  --marke: #c8102e;
+  --akzent: light-dark(var(--marke), color-mix(in oklab, var(--marke) 86%, white));
+  --akzent-tief: light-dark(color-mix(in oklab, var(--marke) 82%, black), color-mix(in oklab, var(--marke) 32%, #111));
+  --akzent-weich: light-dark(color-mix(in oklab, var(--marke) 11%, white), color-mix(in oklab, var(--marke) 22%, #18181a));
+  --akzent-text: light-dark(color-mix(in oklab, var(--marke) 85%, black), color-mix(in oklab, var(--marke) 55%, white));
+  --grund: light-dark(#f5f5f4, #0f0f10);
+  --flaeche: light-dark(#ffffff, #18181a);
+  --flaeche-2: light-dark(#fafaf9, #1f1f22);
+  --text: light-dark(#1c1917, #ececec);
+  --leise: light-dark(#6b6560, #9a9a9f);
+  --linie: light-dark(#e7e5e4, #2c2c30);
+  --gut: light-dark(#1f8a4c, #3fb978);
+  --gut-weich: light-dark(#e6f4ec, #16291f);
+  --warn: light-dark(#b7791f, #e0a43a);
+  --warn-weich: light-dark(#fbf1e1, #2c2416);
+  --plan: light-dark(#4b5563, #a1a1aa);
+  --rund: 12px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px; line-height: 1.5;
+}
+:root[data-darstellung="hell"] { color-scheme: light; }
+:root[data-darstellung="dunkel"] { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--grund); color: var(--text); }
+a { color: var(--akzent-text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Kopf */
+.kopf { background: var(--akzent-tief); color: #fff; }
+.kopf-innen { max-width: 1180px; margin: 0 auto; padding: 28px 28px 30px; }
+.kopfzeile { display: flex; align-items: center; gap: 14px; }
+.logo { width: 46px; height: 46px; border-radius: 10px; background: #fff; color: var(--marke);
+  display: grid; place-items: center; flex: none; }
+.logo svg { width: 28px; height: 28px; }
+.kopf h1 { margin: 0; font-size: 1.6rem; line-height: 1.15; }
+.kopf .unter { color: rgb(255 255 255 / .75); font-size: 14px; }
+.umschalter { margin-left: auto; display: flex; background: rgb(255 255 255 / .12); border-radius: 999px; padding: 3px; }
+.umschalter button { border: 0; background: transparent; color: #fff; font: inherit; font-size: 13px;
+  padding: 5px 12px; border-radius: 999px; cursor: pointer; }
+.umschalter button[aria-pressed="true"] { background: #fff; color: var(--akzent-tief); font-weight: 600; }
+
+.kacheln { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 26px; }
+.kachel { background: rgb(255 255 255 / .09); border: 1px solid rgb(255 255 255 / .16); border-radius: var(--rund); padding: 14px 16px; }
+.kachel .zahl { font-size: 1.9rem; font-weight: 700; line-height: 1.1; }
+.kachel .was { font-size: 13px; color: rgb(255 255 255 / .78); }
+.fortschritt { margin-top: 22px; }
+.fortschritt .zeile { display: flex; justify-content: space-between; font-size: 13px; color: rgb(255 255 255 / .85); margin-bottom: 6px; }
+.balken { height: 10px; border-radius: 999px; background: rgb(255 255 255 / .16); overflow: hidden; display: flex; }
+.balken span { display: block; height: 100%; }
+.balken .b-gut { background: #fff; }
+.balken .b-arbeit { background: rgb(255 255 255 / .55); }
+
+/* Inhalt */
+main { max-width: 1180px; margin: 0 auto; padding: 8px 28px 60px; }
+.abschnitt { margin-top: 36px; }
+.abschnitt-kopf { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+.abschnitt-kopf h2 { margin: 0; font-size: 1.25rem; }
+.abschnitt-kopf .leise { color: var(--leise); font-size: 14px; }
+.punkt { width: 12px; height: 12px; border-radius: 50%; display: inline-block; flex: none; transform: translateY(1px); }
+.p-gut { background: var(--gut); } .p-arbeit { background: var(--warn); } .p-plan { background: var(--akzent); } .p-spaeter { background: var(--plan); }
+
+.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; padding: 1px 8px;
+  border-radius: 999px; border: 1px solid var(--linie); background: var(--flaeche-2); color: var(--leise); white-space: nowrap; }
+a.chip:hover { text-decoration: none; border-color: var(--akzent); color: var(--akzent-text); }
+.chip.version { background: var(--akzent-weich); color: var(--akzent-text); border-color: transparent; }
+
+/* Zeitstrahl Erledigt */
+.zeitstrahl { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.release { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--rund); padding: 14px 16px; position: relative; }
+.release::before { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px; border-radius: 0 3px 3px 0; background: var(--gut); }
+.release-kopf { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.release-kopf .datum { margin-left: auto; color: var(--leise); font-size: 12px; }
+.release h3 { margin: 0 0 6px; font-size: 1rem; }
+.release ul { margin: 0; padding-left: 18px; font-size: 14px; }
+.release li { margin: 2px 0; }
+.release li .chip { margin-left: 4px; }
+.release .fix { color: var(--leise); font-size: 13px; margin-top: 6px; }
+
+/* Karten In Arbeit / Geplant */
+.raster { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.raster.drei { grid-template-columns: repeat(3, 1fr); }
+.karte { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--rund); padding: 14px 16px; }
+.karte h3 { margin: 0 0 4px; font-size: 1rem; display: flex; gap: 8px; align-items: baseline; }
+.karte h3 .chip { margin-left: auto; }
+.karte p { margin: 0; font-size: 14px; color: var(--leise); }
+.karte ul { margin: 6px 0 0; padding-left: 18px; font-size: 14px; }
+.karte.arbeit { border-color: color-mix(in oklab, var(--warn) 45%, var(--linie)); background: var(--warn-weich); }
+.status { font-size: 12px; font-weight: 600; color: var(--warn); text-transform: uppercase; letter-spacing: .04em; }
+.erledigt-teil { color: var(--gut); }
+
+.phase { margin-top: 18px; }
+.phase h3.phasentitel { font-size: .95rem; margin: 0 0 10px; display: flex; gap: 10px; align-items: center; }
+.phase h3.phasentitel .nr { width: 24px; height: 24px; border-radius: 50%; background: var(--akzent); color: #fff;
+  display: grid; place-items: center; font-size: 12px; }
+.phase .hinweis { font-size: 13px; color: var(--leise); margin: -4px 0 10px 34px; }
+
+.liste { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--rund); overflow: hidden; }
+.liste .eintrag { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 10px 16px; border-top: 1px solid var(--linie); align-items: baseline; font-size: 14px; }
+.liste .eintrag:first-child { border-top: 0; }
+.liste .eintrag .nr { color: var(--leise); font-variant-numeric: tabular-nums; }
+.liste .eintrag .titel { font-weight: 600; }
+.liste .eintrag .text { color: var(--leise); display: block; font-weight: 400; font-size: 13px; }
+
+.fuss { margin-top: 40px; color: var(--leise); font-size: 13px; border-top: 1px solid var(--linie); padding-top: 14px; }
+
+@media (max-width: 900px) {
+  .zeitstrahl, .raster, .raster.drei { grid-template-columns: 1fr; }
+  .kacheln { grid-template-columns: repeat(2, 1fr); }
+}
+@media print {
+  .umschalter { display: none; }
+  .kopf { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .release, .karte, .liste .eintrag { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<header class="kopf">
+  <div class="kopf-innen">
+    <div class="kopfzeile">
+      <a class="logo" href="/" aria-label="Zur Startseite von Glutnest">
+        <svg viewBox="0 0 24 24"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2.4 1.2-4 2.6-5.4.2 1.6.9 2.7 2 3.4C11 8 11 5 12 2Z"/><path d="M12 21a2.2 2.2 0 0 1-2.2-2.2c0-1.4 1.2-2.3 2.2-3.8 1 1.5 2.2 2.4 2.2 3.8A2.2 2.2 0 0 1 12 21Z"/></svg>
+      </a>
+      <div>
+        <h1>Glutnest – Roadmap</h1>
+        <div class="unter">Feuerwehr-Verwaltung · Stand 14.11.2026 · aktuelle Version 0.15.0</div>
+      </div>
+      <div class="umschalter" role="group" aria-label="Darstellung">
+        <button type="button" data-wert="auto">Auto</button>
+        <button type="button" data-wert="hell">Hell</button>
+        <button type="button" data-wert="dunkel">Dunkel</button>
+      </div>
+    </div>
+
+    <div class="kacheln">
+      <div class="kachel"><div class="zahl">18</div><div class="was">Versionen von 0.1.0 bis 0.15.0</div></div>
+      <div class="kachel"><div class="zahl">24</div><div class="was">Issues erledigt</div></div>
+      <div class="kachel"><div class="zahl">2</div><div class="was">in Arbeit (#69, #76)</div></div>
+      <div class="kachel"><div class="zahl">23</div><div class="was">geplant, davon 11 „später“</div></div>
+    </div>
+
+    <div class="fortschritt">
+      <div class="zeile"><span>MVP-Umfang (Label „mvp“): 21 von 33 Issues erledigt</span><span>64 %</span></div>
+      <div class="balken" role="img" aria-label="21 von 33 MVP-Issues erledigt, 1 in Arbeit">
+        <span class="b-gut" style="width:63.6%"></span><span class="b-arbeit" style="width:3%"></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ERLEDIGT -->
+  <section class="abschnitt">
+    <div class="abschnitt-kopf"><span class="punkt p-gut"></span><h2>Erledigt</h2><span class="leise">nach Version, neueste zuerst</span></div>
+    <div class="zeitstrahl" id="erledigt"></div>
+  </section>
+
+  <!-- IN ARBEIT -->
+  <section class="abschnitt">
+    <div class="abschnitt-kopf"><span class="punkt p-arbeit"></span><h2>In Arbeit</h2><span class="leise">nächstes Release</span></div>
+    <div class="raster">
+      <div class="karte arbeit">
+        <div class="status">In Arbeit</div>
+        <h3>Plattform-Admin im Glutnest-Design <span class="chip">#76</span></h3>
+        <ul>
+          <li>Wehren, Lizenzen, Plattformeinstellungen und Backup-Status in eigener Oberfläche statt Django-Admin</li>
+          <li>Backup und Wiederherstellung je Wehr (Cloud), ohne andere Wehren zu berühren</li>
+          <li>Backup-Verlauf statt nur letztem Lauf</li>
+        </ul>
+      </div>
+      <div class="karte arbeit">
+        <div class="status">In Arbeit · teilweise erledigt</div>
+        <h3>Backup &amp; Plattform-Admin (Epic) <span class="chip">#69</span></h3>
+        <ul>
+          <li class="erledigt-teil">✓ Eigener Mailserver je Wehr mit Testmail (0.15.0)</li>
+          <li class="erledigt-teil">✓ Backup-Status mit Mail bei Fehler oder ausbleibendem Backup (0.15.0)</li>
+          <li>Backup und Wiederherstellung in den Einstellungen, globales Backup für den SaaS-Betrieb → #76</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GEPLANT -->
+  <section class="abschnitt">
+    <div class="abschnitt-kopf"><span class="punkt p-plan"></span><h2>Geplant</h2><span class="leise">offene MVP-Issues, als Vorschlag in zwei Etappen sortiert</span></div>
+
+    <div class="phase">
+      <h3 class="phasentitel"><span class="nr">1</span>Verkaufsreif machen</h3>
+      <p class="hinweis">Was eine Wehr braucht, bevor sie Glutnest kaufen und produktiv nutzen kann.</p>
+      <div class="raster drei" id="phase1"></div>
+    </div>
+
+    <div class="phase">
+      <h3 class="phasentitel"><span class="nr">2</span>Module abrunden</h3>
+      <p class="hinweis">Ausgelagerte Reste aus fertigen Modulen.</p>
+      <div class="raster drei" id="phase2"></div>
+    </div>
+  </section>
+
+  <!-- SPÄTER -->
+  <section class="abschnitt">
+    <div class="abschnitt-kopf"><span class="punkt p-spaeter"></span><h2>Später</h2><span class="leise">bewusst nach dem MVP</span></div>
+    <div class="liste" id="spaeter"></div>
+  </section>
+
+  <p class="fuss"><a href="/">← Zur Startseite</a> · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a><br>Erstellt aus der Aufgabenliste, dem Änderungsprotokoll und den Releases von Glutnest (Stand 14.11.2026, 17:30 Uhr). Die Reihenfolge unter „Geplant“ ist ein Vorschlag, keine Festlegung. Die Nummern verweisen auf die interne Aufgabenliste.</p>
+</main>
+
+<script>
+const issue = n => `<span class="chip">#${n}</span>`;
+
+const releases = [
+  { v: "0.15.0", d: "14.11.", t: "Kommunikation & Kleiderkammer", p: [
+    ["Mitteilungen, Umfragen und Dokumentenablage", 21],
+    ["Kleiderkammer & PSA mit Lebensdauer und Prüfungen", 20],
+    ["Nachweise (PDF/Foto) an Qualifikationen, Ehrungen …", 73],
+    ["Einsatzort auf OpenStreetMap-Karte", 75],
+    ["Mailserver je Wehr, Backup-Status per Mail", 69],
+    ["Content-Security-Policy für alle Seiten"]] },
+  { v: "0.14.0", d: "14.11.", t: "Protokoll, Statistik & Kalender", p: [
+    ["Audit-Log, manipulationssicher, 1 Jahr Aufbewahrung", 39],
+    ["Statistik je Jahr/Standort, Jahresbericht als PDF", 22],
+    ["Kalender mit Zu-/Absagen und iCal-Abo", 19]],
+    fix: "0.14.1 / 0.14.2: Dienstgrad-Historie, Funktion FEZ" },
+  { v: "0.13.0", d: "14.11.", t: "Ehrungen & Jubiläen", p: [
+    ["Ehrungskatalog (RLP vorbelegt), fällige Ehrungen", 44],
+    ["Jubiläen, runde Geburtstage, Dienstjahre"]] },
+  { v: "0.12.0", d: "14.11.", t: "Automatische Backups", p: [
+    ["Tägliche Sicherung, optional verschlüsselt", 38],
+    ["Wiederherstellung mit Prüfsummen, in CI getestet"]] },
+  { v: "0.11.0", d: "14.11.", t: "Fälligkeiten & Erinnerungen", p: [
+    ["Startseite zeigt Fälliges nach eigenen Rechten", 50],
+    ["Erinnerungs-Mails zu Qualifikationen und Mängeln", 45]] },
+  { v: "0.10.0", d: "14.11.", t: "Einstellungen", p: [
+    ["Einstellungsmenü mit Reitern je Recht"],
+    ["Standorte/Gruppen im Browser, eigene Funktionen & Qualifikationen", 63]] },
+  { v: "0.9.0", d: "14.11.", t: "Übungen & Dienste", p: [
+    ["Dienstplanung je Standort/Gruppe", 5],
+    ["Anwesenheit per Antippen, auch am Handy"],
+    ["Auswertung je Mitglied, Atemschutz aus Übung"]] },
+  { v: "0.8.0", d: "14.11.", t: "Leitstellen-Import", p: [
+    ["Einsatz aus iSE Cobra 4 (MAÜ-XML) übernehmen", 60],
+    ["Datensparsam: keine Melder- oder Patientendaten"]] },
+  { v: "0.7.0", d: "14.11.", t: "Einsatzberichte", p: [
+    ["Einsatzbericht mit Kräften, Fahrzeugen, Geräten", 4],
+    ["Freigabe Entwurf → geprüft → abgeschlossen"],
+    ["Fahrtenbuch- und Atemschutz-Übernahme, Druckansicht"]],
+    fix: "0.7.1: Anhänge mit Bezeichnung, Fotogalerie" },
+  { v: "0.6.0", d: "14.11.", t: "Atemschutz", p: [
+    ["Geräteträger mit berechneter Einsatzbereitschaft", 8],
+    ["G 26.3 verschlüsselt mit eigenem Recht"]] },
+  { v: "0.5.0", d: "14.11.", t: "Geräte & Prüfungen", p: [
+    ["Inventar, Prüfarten nach DGUV/DIN, Prüfprotokolle", 7],
+    ["QR-Etiketten, Beladeplan je Fahrzeug", 49]] },
+  { v: "0.4.0", d: "13.11.", t: "Fahrzeuge", p: [
+    ["Fahrzeugstamm, Fristen, Fahrtenbuch, Mängel", 6],
+    ["Seite „Über Glutnest“, automatische Releases", 52]] },
+  { v: "0.3.0", d: "13.11.", t: "Personal & Qualifikationen", p: [
+    ["Mitglieder, Qualifikationen, Funktionen, Dienstgrade", 3],
+    ["Bankverbindung verschlüsselt, „Meine Daten“, CSV"]] },
+  { v: "0.2.0", d: "13.11.", t: "Rollen, 2FA & Themes", p: [
+    ["Frei konfigurierbare Rollen, Pflicht-2FA (TOTP)", 2],
+    ["Themes Wache/Klar/Leitstand, Hell/Dunkel, Logo", 29]] },
+  { v: "0.1.0", d: "13.11.", t: "Grundgerüst", p: [
+    ["Django, Mandanten mit Row-Level-Security", 1],
+    ["Docker Compose mit Traefik, Image in GHCR"]] },
+];
+
+document.getElementById("erledigt").innerHTML = releases.map(r => `
+  <article class="release">
+    <div class="release-kopf"><span class="chip version">v${r.v}</span><span class="datum">${r.d}2026</span></div>
+    <h3>${r.t}</h3>
+    <ul>${r.p.map(([text, n]) => `<li>${text}${n ? issue(n) : ""}</li>`).join("")}</ul>
+    ${r.fix ? `<div class="fix">${r.fix}</div>` : ""}
+  </article>`).join("");
+
+const karte = ([n, titel, text]) => `
+  <div class="karte"><h3>${titel} ${issue(n)}</h3><p>${text}</p></div>`;
+
+document.getElementById("phase1").innerHTML = [
+  [11, "Lizenzsystem", "Signierte Lizenzschlüssel (Ed25519) mit Nutzerlimit, Modulen und Laufzeit, offline geprüft"],
+  [12, "Lizenz-Generator", "Internes Werkzeug nur für den Hersteller, mit Register aller Lizenzen"],
+  [37, "Ersteinrichtungs-Assistent", "Wehr, Standorte und ersten Admin im Browser anlegen statt per Kommandozeile"],
+  [9, "Datenimport", "Arigon, MP Feuer, Divera und Excel/CSV mit Feldzuordnung, Vorschau und Probelauf"],
+  [10, "Bundesländer-Konfiguration", "Kataloge, Begriffe, Fristen und Statistikfelder je Land; RLP zuerst"],
+  [26, "Sicherheit", "Grundschutz größtenteils umgesetzt (2FA, CSP, RLS, Verschlüsselung); offen: Scans in CI, Pentest vor Verkauf"],
+  [27, "Datenschutz (DSGVO)", "Verarbeitungsverzeichnis, AVV-Vorlage, Auskunft/Export/Löschung je Person und Wehr"],
+  [56, "Projekt-Webseite", "Diese Webseite auf glutnest.eu mit Funktionen, Screenshots und Kontakt"],
+].map(karte).join("");
+
+document.getElementById("phase2").innerHTML = [
+  [43, "Mehrere Standorte je Mitglied", "Mitgliedschaft in mehreren Standorten und Gruppen mit Historie"],
+  [46, "PDF-Export Mitgliederlisten", "Gefilterte Liste als PDF mit Wehrlogo"],
+  [59, "Einsatzberichte: Reste", "Serverseitiges PDF, Stichworte je Land, Vier-Augen-Prüfung, defekte Geräte melden"],
+  [54, "Geräte: Sammelprüfung & Soll/Ist", "Viele Geräte in einem Durchgang prüfen, Soll-Beladung, Gerätetausch"],
+].map(karte).join("");
+
+const spaeter = [
+  [13, "Alarmierung", "PWA-Push, Rückmeldung komme/komme nicht, Verfügbarkeit, Alarmmonitor"],
+  [14, "Native Apps iOS/Android", "Zuverlässige, laute Alarmierung und mobile Erfassung"],
+  [15, "SMS- und Sprachanruf-Gateway", "Rückfallebene der Alarmierung"],
+  [16, "Leitstelle, DME, Sirenen", "Alarmeingang automatisch übernehmen (Fax/Mail, FMS/ZVEI/POCSAG)"],
+  [17, "Single Sign-on (OIDC)", "Microsoft 365, Google, Keycloak; Gruppen zu Rollen"],
+  [18, "Dienstplan & Bereitschaften", "Bereitschaften, Tagesverfügbarkeit, Diensttausch"],
+  [23, "Jugend- und Kinderfeuerwehr", "Erziehungsberechtigte, Einverständnisse, Leistungsabzeichen, Übertritt"],
+  [24, "SaaS-Betrieb", "Mandantenverwaltung, Selbstregistrierung, Abrechnung"],
+  [48, "Fahrtenbuch am Fahrzeug-Tablet", "Touch-Fahrtenbuch mit Unterschrift und Gerätekonto"],
+  [71, "Landesstatistik-Export", "Jahreszahlen im Format der Landesstatistik (RLP zuerst), bewusst verschoben"],
+  [28, "Mehrsprachigkeit", "Österreich und Schweiz, vorgemerkt für ca. 2027"],
+];
+document.getElementById("spaeter").innerHTML = spaeter.map(([n, titel, text]) => `
+  <div class="eintrag"><span><span class="titel">${titel}</span><span class="text">${text}</span></span>${issue(n)}</div>`).join("");
+
+/* Hell/Dunkel */
+const wurzel = document.documentElement;
+const knoepfe = document.querySelectorAll(".umschalter button");
+function setze(wert) {
+  if (wert === "auto") delete wurzel.dataset.darstellung; else wurzel.dataset.darstellung = wert;
+  knoepfe.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.wert === wert)));
+  try { localStorage.setItem("glutnest-darstellung", wert); } catch (e) {}
+}
+knoepfe.forEach(b => b.addEventListener("click", () => setze(b.dataset.wert)));
+let start = new URLSearchParams(location.search).get("darstellung");
+try { start = start || localStorage.getItem("glutnest-darstellung"); } catch (e) {}
+setze(start || "auto");
+</script>
+</body>
+</html>

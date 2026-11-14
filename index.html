@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glutnest – Feuerwehr-Verwaltung aus Deutschland</title>
+<meta name="description" content="Glutnest ist die browserbasierte Verwaltung für Freiwillige Feuerwehren: Personal, Einsätze, Übungen, Fahrzeuge, Geräte und Atemschutz. Im eigenen Haus oder in der Cloud mit Hosting in Deutschland.">
+<meta property="og:title" content="Glutnest – Feuerwehr-Verwaltung aus Deutschland">
+<meta property="og:description" content="Personal, Einsätze, Übungen, Fahrzeuge, Geräte und Atemschutz in einer Anwendung. On-Premises oder Cloud, Hosting nur in Deutschland.">
+<meta property="og:image" content="https://glutnest.eu/bilder/start.webp">
+<meta property="og:url" content="https://glutnest.eu/">
+<meta property="og:locale" content="de_DE">
+<link rel="canonical" href="https://glutnest.eu/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/darstellung.js"></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="flamme" viewBox="0 0 24 24"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2.4 1.2-4 2.6-5.4.2 1.6.9 2.7 2 3.4C11 8 11 5 12 2Z"/><path d="M12 21a2.2 2.2 0 0 1-2.2-2.2c0-1.4 1.2-2.3 2.2-3.8 1 1.5 2.2 2.4 2.2 3.8A2.2 2.2 0 0 1 12 21Z"/></symbol>
+  <symbol id="personen" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><path d="M16 3.5a4 4 0 0 1 0 8"/><path d="M19 14a6 6 0 0 1 3 5.2V21"/></symbol>
+  <symbol id="einsatz" viewBox="0 0 24 24"><path d="M12 3c.8 2.8 4 4.8 4 8.8a4 4 0 0 1-8 0c0-1.9 1-3.2 2.1-4.3.2 1.3.7 2.2 1.6 2.7C11.3 8 11.2 5.4 12 3Z"/><path d="M4 21h16"/></symbol>
+  <symbol id="uebung" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="m9 15 2 2 4-4"/></symbol>
+  <symbol id="fahrzeug" viewBox="0 0 24 24"><path d="M2 16V7a1 1 0 0 1 1-1h11v10"/><path d="M14 9h4l4 4v3h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/></symbol>
+  <symbol id="geraet" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4Z"/></symbol>
+  <symbol id="atemschutz" viewBox="0 0 24 24"><path d="M12 3a8 8 0 0 0-8 8v3a7 7 0 0 0 7 7h2a7 7 0 0 0 7-7v-3a8 8 0 0 0-8-8Z"/><circle cx="12" cy="15" r="3"/><path d="M7 10h3M14 10h3"/></symbol>
+  <symbol id="kalender" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8 14h2M14 14h2M8 18h2"/></symbol>
+  <symbol id="statistik" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 17V11M11 17V6M16 17v-4M21 17V9"/></symbol>
+  <symbol id="orden" viewBox="0 0 24 24"><circle cx="12" cy="14" r="6"/><path d="m9 2 3 6 3-6"/><path d="m12 11 1 2 2 .3-1.5 1.4.4 2.1-1.9-1-1.9 1 .4-2.1L9 13.3l2-.3Z"/></symbol>
+  <symbol id="glocke" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="nachricht" viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1Z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></symbol>
+  <symbol id="shirt" viewBox="0 0 24 24"><path d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3a4 4 0 0 1-8 0Z"/></symbol>
+  <symbol id="import" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v3h16v-3"/></symbol>
+  <symbol id="karte" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="sicherung" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+  <symbol id="schild" viewBox="0 0 24 24"><path d="M12 22s8-3 8-10V5l-8-3-8 3v7c0 7 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="haken" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></symbol>
+  <symbol id="wolke" viewBox="0 0 24 24"><path d="M7 19h10a5 5 0 0 0 .6-9.96A7 7 0 0 0 4.2 11.3 4 4 0 0 0 7 19Z"/></symbol>
+  <symbol id="schloss" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="handy" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="pfeil" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="innen">
+    <a class="marke" href="/"><span class="logo"><svg><use href="#flamme"/></svg></span>Glutnest</a>
+    <nav class="nav-links" aria-label="Hauptmenü">
+      <a href="#funktionen">Funktionen</a>
+      <a href="#rundgang">Rundgang</a>
+      <a href="#betrieb">Betrieb</a>
+      <a href="#sicherheit">Sicherheit</a>
+      <a href="/roadmap/">Roadmap</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="umschalter" role="group" aria-label="Darstellung">
+      <button type="button" data-wert="auto">Auto</button>
+      <button type="button" data-wert="hell">Hell</button>
+      <button type="button" data-wert="dunkel">Dunkel</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="innen">
+    <div class="hero-text">
+      <span class="etikett"><span class="punkt"></span>In aktiver Entwicklung · Version 0.15</span>
+      <h1>Die Verwaltung für eure Feuerwehr. An einem Ort.</h1>
+      <p class="lead">Glutnest bündelt Personal, Einsätze, Übungen, Fahrzeuge, Geräte und Atemschutz in einer Anwendung im Browser. Für Wehrleitung, Gerätewarte und jedes Mitglied, am PC wie am Handy.</p>
+      <div class="knoepfe">
+        <a class="knopf primaer" href="#kontakt">Vorführung anfragen <svg class="i"><use href="#pfeil"/></svg></a>
+        <a class="knopf zweit" href="/roadmap/">Roadmap ansehen</a>
+      </div>
+      <div class="vorteile">
+        <span><svg class="i"><use href="#haken"/></svg>Hosting nur in Deutschland</span>
+        <span><svg class="i"><use href="#haken"/></svg>Zwei-Faktor-Anmeldung Pflicht</span>
+        <span><svg class="i"><use href="#haken"/></svg>Im eigenen Haus oder in der Cloud</span>
+      </div>
+    </div>
+    <div class="hero-bild">
+      <div class="fenster">
+        <div class="leiste"><i></i><i></i><i></i><span>glutnest · Start</span></div>
+        <img src="/bilder/start.webp" width="1280" height="860" alt="Startseite von Glutnest mit Neuigkeiten, nächsten Terminen und fälligen Prüfungen">
+      </div>
+      <div class="handy"><img src="/bilder/anwesenheit-handy.webp" width="780" height="1688" alt="Anwesenheit einer Übung am Handy erfassen, dunkle Darstellung"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="funktionen">
+  <div class="innen">
+    <div class="kopf">
+      <div class="ueber">Funktionen</div>
+      <h2>Alles, was im Gerätehaus sonst in Ordnern, Listen und Köpfen steckt</h2>
+      <p>Jedes Modul greift auf dieselben Stammdaten zu. Wer im Einsatz war, steht im Bericht, im Fahrtenbuch und im Atemschutznachweis, ohne dass es dreimal eingetippt wird.</p>
+    </div>
+    <div class="module">
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#personen"/></svg></div><h3>Personal &amp; Qualifikationen</h3><p>Mitglieder, Dienstgrade, Funktionen, Lehrgänge und Ablaufdaten. Jedes Mitglied pflegt seine eigenen Daten selbst.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#einsatz"/></svg></div><h3>Einsatzberichte</h3><p>Kräfte, Fahrzeuge und Geräte erfassen, mit Freigabe von Entwurf über geprüft bis abgeschlossen und Druckansicht.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#import"/></svg></div><h3>Leitstellen-Import</h3><p>Einsätze aus iSE Cobra 4 per MAÜ-XML übernehmen. Datensparsam ohne Melder- oder Patientendaten.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#uebung"/></svg></div><h3>Übungen &amp; Dienste</h3><p>Dienstplanung je Standort und Gruppe, Anwesenheit per Antippen am Handy, Auswertung je Mitglied.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#fahrzeug"/></svg></div><h3>Fahrzeuge</h3><p>Fahrzeugstamm, Fristen wie HU und UVV, Fahrtenbuch und Mängelmeldungen mit Einsatzbereitschaft.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#geraet"/></svg></div><h3>Geräte &amp; Prüfungen</h3><p>Inventar, Prüfarten nach DGUV und DIN, Prüfprotokolle, QR-Etiketten und Beladeplan je Fahrzeug.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#atemschutz"/></svg></div><h3>Atemschutz</h3><p>Geräteträger mit berechneter Einsatzbereitschaft aus Lehrgang, G 26.3, Belastungsübung und Unterweisung.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#kalender"/></svg></div><h3>Kalender</h3><p>Termine und Dienste mit Zu- und Absagen. Persönliches iCal-Abo für Handy und Outlook.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#statistik"/></svg></div><h3>Statistik &amp; Jahresbericht</h3><p>Zahlen je Jahr und Standort, Jahresbericht für die Hauptversammlung als PDF.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#orden"/></svg></div><h3>Ehrungen &amp; Jubiläen</h3><p>Ehrungskatalog des Landes vorbelegt. Glutnest zeigt, wer welche Ehrung erreicht hat.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#glocke"/></svg></div><h3>Fälligkeiten &amp; Erinnerungen</h3><p>Die Startseite zeigt, was im eigenen Bereich abläuft. Erinnerungen kommen per Mail.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#nachricht"/></svg></div><h3>Mitteilungen &amp; Umfragen</h3><p>Neuigkeiten an die ganze Wehr oder einzelne Gruppen, Umfragen und eine Dokumentenablage.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#shirt"/></svg></div><h3>Kleiderkammer &amp; PSA</h3><p>Ausgabe je Mitglied, Bestand, Lebensdauer und Prüfungen der persönlichen Schutzausrüstung.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#karte"/></svg></div><h3>Einsatzkarte</h3><p>Einsatzorte auf einer OpenStreetMap-Karte, ohne Datenweitergabe an große Kartendienste.</p></article>
+      <article class="modul"><div class="symbol"><svg class="i"><use href="#sicherung"/></svg></div><h3>Automatische Backups</h3><p>Tägliche, optional verschlüsselte Sicherung mit Prüfsummen und Meldung, wenn etwas schiefgeht.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="rundgang">
+  <div class="innen">
+    <div class="kopf">
+      <div class="ueber">Rundgang</div>
+      <h2>So sieht Glutnest im Alltag aus</h2>
+      <p>Alle Bilder stammen aus der laufenden Anwendung mit Beispieldaten.</p>
+    </div>
+
+    <div class="zeile">
+      <div class="text">
+        <h3>Personal im Blick, Fristen auch</h3>
+        <p>Die Personalliste zeigt Qualifikationen und den nächsten Ablauf auf einen Blick. Filter nach Standort, Gruppe und Fälligkeit helfen bei der Planung von Lehrgängen.</p>
+        <ul>
+          <li><svg class="i"><use href="#haken"/></svg>Standorte und Mitgliedergruppen frei anlegbar</li>
+          <li><svg class="i"><use href="#haken"/></svg>Bankverbindung und Gesundheitsdaten verschlüsselt</li>
+          <li><svg class="i"><use href="#haken"/></svg>Import aus CSV und Excel</li>
+        </ul>
+      </div>
+      <div class="bildrahmen"><img src="/bilder/personal.webp" width="1280" height="860" loading="lazy" alt="Personalliste mit Qualifikationen und nächstem Ablaufdatum"></div>
+    </div>
+
+    <div class="zeile dreh">
+      <div class="text">
+        <h3>Vom Alarm zum fertigen Bericht</h3>
+        <p>Der Einsatz kommt aus der Leitstelle, die Mannschaft ergänzt Kräfte, Fahrzeuge und Geräte. Fahrtenbuch und Atemschutznachweis entstehen dabei gleich mit.</p>
+        <ul>
+          <li><svg class="i"><use href="#haken"/></svg>Import aus iSE Cobra 4 (MAÜ-XML)</li>
+          <li><svg class="i"><use href="#haken"/></svg>Freigabe in drei Stufen</li>
+          <li><svg class="i"><use href="#haken"/></svg>Fotos und Anhänge direkt am Bericht</li>
+        </ul>
+      </div>
+      <div class="bildrahmen"><img src="/bilder/einsatz.webp" width="1280" height="860" loading="lazy" alt="Einsatzbericht mit Stichwort, Zeiten, Lage und Maßnahmen"></div>
+    </div>
+
+    <div class="zeile">
+      <div class="text">
+        <h3>Fahrzeuge, Geräte und Prüfungen</h3>
+        <p>Gerätewarte sehen Fristen, offene Mängel und den Beladeplan je Fahrzeug. QR-Etiketten führen direkt zum Gerät und seinen Prüfprotokollen.</p>
+        <ul>
+          <li><svg class="i"><use href="#haken"/></svg>Prüfarten nach DGUV und DIN vorbelegt</li>
+          <li><svg class="i"><use href="#haken"/></svg>Mängel mit Auswirkung auf die Einsatzbereitschaft</li>
+          <li><svg class="i"><use href="#haken"/></svg>Fahrtenbuch je Fahrzeug</li>
+        </ul>
+      </div>
+      <div class="paar">
+        <div class="bildrahmen"><img src="/bilder/fahrzeug.webp" width="1280" height="860" loading="lazy" alt="Fahrzeugseite mit Prüfungen, Fristen und Mängeln"></div>
+        <div class="zweites"><img src="/bilder/beladeplan.webp" width="1280" height="860" loading="lazy" alt="Beladeplan eines Fahrzeugs nach Geräteräumen"></div>
+      </div>
+    </div>
+
+    <div class="zeile dreh">
+      <div class="text">
+        <h3>Hell, dunkel und in euren Farben</h3>
+        <p>Drei Oberflächen zur Wahl: Wache, Klar und Leitstand. Jedes Mitglied stellt Hell oder Dunkel ein, die Wehr setzt Logo und Farbe.</p>
+        <ul>
+          <li><svg class="i"><use href="#haken"/></svg>Läuft im Browser, ohne Installation</li>
+          <li><svg class="i"><use href="#haken"/></svg>Als App auf dem Handy-Startbildschirm</li>
+          <li><svg class="i"><use href="#haken"/></svg>Jahresbericht als PDF für die Versammlung</li>
+        </ul>
+      </div>
+      <div class="bildrahmen"><img src="/bilder/statistik-dunkel.webp" width="1280" height="860" loading="lazy" alt="Statistikseite in dunkler Darstellung mit Einsätzen je Monat"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="betrieb">
+  <div class="innen">
+    <div class="kopf">
+      <div class="ueber">Betrieb</div>
+      <h2>Bei euch im Haus oder bei uns in der Cloud</h2>
+      <p>Dieselbe Software, zwei Wege. Ihr entscheidet, wo eure Daten liegen.</p>
+    </div>
+    <div class="zwei">
+      <div class="option">
+        <h3><svg class="i"><use href="#server"/></svg>On-Premises</h3>
+        <p>Glutnest läuft auf eurem eigenen Server, etwa bei der Verbandsgemeinde oder Stadt.</p>
+        <ul>
+          <li>Eine Wehr mit beliebig vielen Standorten</li>
+          <li>Installation mit Docker Compose</li>
+          <li>Daten verlassen euer Netz nicht</li>
+          <li>Updates als fertiges Image</li>
+        </ul>
+      </div>
+      <div class="option">
+        <h3><svg class="i"><use href="#wolke"/></svg>Cloud</h3>
+        <p>Wir betreiben Glutnest für euch. Ihr meldet euch an und legt los.</p>
+        <ul>
+          <li>Hosting ausschließlich in Deutschland</li>
+          <li>Jede Wehr strikt von anderen getrennt</li>
+          <li>Backups und Updates inklusive</li>
+          <li>Kein eigener Server nötig</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="sicherheit">
+  <div class="innen">
+    <div class="kopf">
+      <div class="ueber">Sicherheit &amp; Datenschutz</div>
+      <h2>Personaldaten verdienen keine Kompromisse</h2>
+      <p>Feuerwehren verwalten Gesundheitsdaten, Bankverbindungen und Einsatzberichte. Glutnest ist von Anfang an dafür gebaut.</p>
+    </div>
+    <div class="sicher">
+      <div><strong>Zwei-Faktor-Anmeldung</strong><span>Für jedes Konto Pflicht, per Authenticator-App.</span></div>
+      <div><strong>Verschlüsselung</strong><span>Bankdaten und G 26.3 zusätzlich verschlüsselt, Zugriff nur mit eigenem Recht.</span></div>
+      <div><strong>Lückenloses Protokoll</strong><span>Wer hat was angesehen, geändert oder exportiert, manipulationssicher.</span></div>
+      <div><strong>Rollen nach Maß</strong><span>Lese- und Schreibrechte je Modul und Standort frei einstellbar.</span></div>
+      <div><strong>Mandantentrennung</strong><span>Trennung bis in die Datenbank per Row-Level-Security.</span></div>
+      <div><strong>Hosting in Deutschland</strong><span>Cloud-Betrieb nur in deutschen Rechenzentren.</span></div>
+      <div><strong>Datensparsam</strong><span>Der Leitstellen-Import übernimmt keine Melder- oder Patientendaten.</span></div>
+      <div><strong>Gehärteter Browser-Zugriff</strong><span>HTTPS, Content-Security-Policy, keine externen Skripte.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="roadmap">
+  <div class="innen">
+    <div class="roadmap-teaser">
+      <div>
+        <h2>Wohin die Reise geht</h2>
+        <p>Glutnest wird laufend weiterentwickelt. Die Roadmap zeigt, was fertig ist, woran gerade gearbeitet wird und was als Nächstes kommt.</p>
+        <a class="knopf primaer" href="/roadmap/">Zur Roadmap <svg class="i"><use href="#pfeil"/></svg></a>
+      </div>
+      <div class="etappen">
+        <div class="etappe"><div class="status">Erledigt</div><strong>18 Versionen, alle Kernmodule nutzbar</strong><div class="balken"><span style="width:64%"></span></div></div>
+        <div class="etappe"><div class="status">Als Nächstes</div><strong>Lizenzen, Ersteinrichtung, Datenimport</strong></div>
+        <div class="etappe"><div class="status">Später</div><strong>Alarmierung, Apps, Single Sign-on</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="kontakt">
+  <div class="innen kontakt">
+    <div class="kopf">
+      <div class="ueber">Preise &amp; Kontakt</div>
+      <h2>Preise auf Anfrage</h2>
+      <p>Der Preis richtet sich nach Größe der Wehr, Modulen und Betriebsart. Schreibt uns, wir zeigen euch Glutnest gern in einer Vorführung.</p>
+    </div>
+    <div class="kontaktkarte">
+      <h3>Schreibt uns</h3>
+      <p>Nennt kurz eure Wehr, die ungefähre Zahl der Mitglieder und ob ihr On-Premises oder Cloud bevorzugt.</p>
+      <a class="knopf primaer" href="mailto:kontakt@glutnest.eu?subject=Anfrage%20Glutnest"><svg class="i"><use href="#mail"/></svg>kontakt@glutnest.eu</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="fuss">
+  <div class="innen">
+    <span>© 2026 Glutnest</span>
+    <nav aria-label="Rechtliches">
+      <a href="/roadmap/">Roadmap</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
