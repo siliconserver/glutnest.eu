@@ -136,7 +136,7 @@ a.chip:hover { text-decoration: none; border-color: var(--akzent); color: var(--
       </a>
       <div>
         <h1>Glutnest – Roadmap</h1>
-        <div class="unter">Feuerwehr-Verwaltung · Stand 14.11.2026 · aktuelle Version 0.15.0</div>
+        <div class="unter">Feuerwehr-Verwaltung · Stand 14.11.2026 · aktuelle Version 0.16.0</div>
       </div>
       <div class="umschalter" role="group" aria-label="Darstellung">
         <button type="button" data-wert="auto">Auto</button>
@@ -146,16 +146,16 @@ a.chip:hover { text-decoration: none; border-color: var(--akzent); color: var(--
     </div>
 
     <div class="kacheln">
-      <div class="kachel"><div class="zahl">18</div><div class="was">Versionen von 0.1.0 bis 0.15.0</div></div>
-      <div class="kachel"><div class="zahl">24</div><div class="was">Issues erledigt</div></div>
-      <div class="kachel"><div class="zahl">2</div><div class="was">in Arbeit (#69, #76)</div></div>
+      <div class="kachel"><div class="zahl">19</div><div class="was">Versionen von 0.1.0 bis 0.16.0</div></div>
+      <div class="kachel"><div class="zahl">27</div><div class="was">Issues erledigt</div></div>
+      <div class="kachel"><div class="zahl">22</div><div class="was">von 33 MVP-Issues fertig</div></div>
       <div class="kachel"><div class="zahl">23</div><div class="was">geplant, davon 11 „später“</div></div>
     </div>
 
     <div class="fortschritt">
-      <div class="zeile"><span>MVP-Umfang (Label „mvp“): 21 von 33 Issues erledigt</span><span>64 %</span></div>
-      <div class="balken" role="img" aria-label="21 von 33 MVP-Issues erledigt, 1 in Arbeit">
-        <span class="b-gut" style="width:63.6%"></span><span class="b-arbeit" style="width:3%"></span>
+      <div class="zeile"><span>MVP-Umfang (Label „mvp“): 22 von 33 Issues erledigt</span><span>67 %</span></div>
+      <div class="balken" role="img" aria-label="22 von 33 MVP-Issues erledigt">
+        <span class="b-gut" style="width:66.7%"></span>
       </div>
     </div>
   </div>
@@ -167,31 +167,6 @@ a.chip:hover { text-decoration: none; border-color: var(--akzent); color: var(--
   <section class="abschnitt">
     <div class="abschnitt-kopf"><span class="punkt p-gut"></span><h2>Erledigt</h2><span class="leise">nach Version, neueste zuerst</span></div>
     <div class="zeitstrahl" id="erledigt"></div>
-  </section>
-
-  <!-- IN ARBEIT -->
-  <section class="abschnitt">
-    <div class="abschnitt-kopf"><span class="punkt p-arbeit"></span><h2>In Arbeit</h2><span class="leise">nächstes Release</span></div>
-    <div class="raster">
-      <div class="karte arbeit">
-        <div class="status">In Arbeit</div>
-        <h3>Plattform-Admin im Glutnest-Design <span class="chip">#76</span></h3>
-        <ul>
-          <li>Wehren, Lizenzen, Plattformeinstellungen und Backup-Status in eigener Oberfläche statt Django-Admin</li>
-          <li>Backup und Wiederherstellung je Wehr (Cloud), ohne andere Wehren zu berühren</li>
-          <li>Backup-Verlauf statt nur letztem Lauf</li>
-        </ul>
-      </div>
-      <div class="karte arbeit">
-        <div class="status">In Arbeit · teilweise erledigt</div>
-        <h3>Backup &amp; Plattform-Admin (Epic) <span class="chip">#69</span></h3>
-        <ul>
-          <li class="erledigt-teil">✓ Eigener Mailserver je Wehr mit Testmail (0.15.0)</li>
-          <li class="erledigt-teil">✓ Backup-Status mit Mail bei Fehler oder ausbleibendem Backup (0.15.0)</li>
-          <li>Backup und Wiederherstellung in den Einstellungen, globales Backup für den SaaS-Betrieb → #76</li>
-        </ul>
-      </div>
-    </div>
   </section>
 
   <!-- GEPLANT -->
@@ -217,66 +192,70 @@ a.chip:hover { text-decoration: none; border-color: var(--akzent); color: var(--
     <div class="liste" id="spaeter"></div>
   </section>
 
-  <p class="fuss"><a href="/">← Zur Startseite</a> · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a><br>Erstellt aus der Aufgabenliste, dem Änderungsprotokoll und den Releases von Glutnest (Stand 14.11.2026, 17:30 Uhr). Die Reihenfolge unter „Geplant“ ist ein Vorschlag, keine Festlegung. Die Nummern verweisen auf die interne Aufgabenliste.</p>
+  <p class="fuss"><a href="/">← Zur Startseite</a> · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a><br>Erstellt aus der Aufgabenliste, dem Änderungsprotokoll und den Releases von Glutnest (Stand 14.11.2026, 17:30 Uhr). Die Reihenfolge unter „Geplant“ ist ein Vorschlag, keine Festlegung. Die Nummern führen zu den Issues auf GitHub, dort könnt ihr auch Fehler melden und Wünsche äußern.</p>
 </main>
 
 <script>
-const issue = n => `<span class="chip">#${n}</span>`;
+const ISSUES = "https://github.com/siliconserver/glutnest.eu/issues/";
+const issue = n => `<a class="chip" href="${ISSUES}${n}">#${n}</a>`;
 
 const releases = [
+  { v: "0.16.0", d: "14.11.", t: "Sicherung & Plattform-Verwaltung", p: [
+    ["Sicherung und Wiederherstellung je Wehr in den Einstellungen", 46],
+    ["Plattform-Verwaltung im Glutnest-Design mit Backup-Verlauf", 50]] },
   { v: "0.15.0", d: "14.11.", t: "Kommunikation & Kleiderkammer", p: [
-    ["Mitteilungen, Umfragen und Dokumentenablage", 21],
-    ["Kleiderkammer & PSA mit Lebensdauer und Prüfungen", 20],
-    ["Nachweise (PDF/Foto) an Qualifikationen, Ehrungen …", 73],
-    ["Einsatzort auf OpenStreetMap-Karte", 75],
-    ["Mailserver je Wehr, Backup-Status per Mail", 69],
+    ["Mitteilungen, Umfragen und Dokumentenablage", 22],
+    ["Kleiderkammer & PSA mit Lebensdauer und Prüfungen", 21],
+    ["Nachweise (PDF/Foto) an Qualifikationen, Ehrungen …", 48],
+    ["Einsatzort auf OpenStreetMap-Karte", 49],
+    ["Mailserver je Wehr, Backup-Status per Mail", 46],
     ["Content-Security-Policy für alle Seiten"]] },
   { v: "0.14.0", d: "14.11.", t: "Protokoll, Statistik & Kalender", p: [
-    ["Audit-Log, manipulationssicher, 1 Jahr Aufbewahrung", 39],
-    ["Statistik je Jahr/Standort, Jahresbericht als PDF", 22],
-    ["Kalender mit Zu-/Absagen und iCal-Abo", 19]],
+    ["Audit-Log, manipulationssicher, 1 Jahr Aufbewahrung", 32],
+    ["Statistik je Jahr/Standort, Jahresbericht als PDF", 23],
+    ["Kalender mit Zu-/Absagen und iCal-Abo", 20]],
     fix: "0.14.1 / 0.14.2: Dienstgrad-Historie, Funktion FEZ" },
   { v: "0.13.0", d: "14.11.", t: "Ehrungen & Jubiläen", p: [
-    ["Ehrungskatalog (RLP vorbelegt), fällige Ehrungen", 44],
+    ["Ehrungskatalog (RLP vorbelegt), fällige Ehrungen", 34],
     ["Jubiläen, runde Geburtstage, Dienstjahre"]] },
   { v: "0.12.0", d: "14.11.", t: "Automatische Backups", p: [
-    ["Tägliche Sicherung, optional verschlüsselt", 38],
+    ["Tägliche Sicherung, optional verschlüsselt", 31],
     ["Wiederherstellung mit Prüfsummen, in CI getestet"]] },
   { v: "0.11.0", d: "14.11.", t: "Fälligkeiten & Erinnerungen", p: [
-    ["Startseite zeigt Fälliges nach eigenen Rechten", 50],
-    ["Erinnerungs-Mails zu Qualifikationen und Mängeln", 45]] },
+    ["Startseite zeigt Fälliges nach eigenen Rechten", 39],
+    ["Erinnerungs-Mails zu Qualifikationen und Mängeln", 35]] },
   { v: "0.10.0", d: "14.11.", t: "Einstellungen", p: [
     ["Einstellungsmenü mit Reitern je Recht"],
-    ["Standorte/Gruppen im Browser, eigene Funktionen & Qualifikationen", 63]] },
+    ["Standorte/Gruppen im Browser, eigene Funktionen & Qualifikationen", 45]] },
   { v: "0.9.0", d: "14.11.", t: "Übungen & Dienste", p: [
-    ["Dienstplanung je Standort/Gruppe", 5],
+    ["Dienstplanung je Standort/Gruppe", 6],
     ["Anwesenheit per Antippen, auch am Handy"],
     ["Auswertung je Mitglied, Atemschutz aus Übung"]] },
   { v: "0.8.0", d: "14.11.", t: "Leitstellen-Import", p: [
-    ["Einsatz aus iSE Cobra 4 (MAÜ-XML) übernehmen", 60],
+    ["Einsatz aus iSE Cobra 4 (MAÜ-XML) übernehmen", 44],
     ["Datensparsam: keine Melder- oder Patientendaten"]] },
   { v: "0.7.0", d: "14.11.", t: "Einsatzberichte", p: [
-    ["Einsatzbericht mit Kräften, Fahrzeugen, Geräten", 4],
+    ["Einsatzbericht mit Kräften, Fahrzeugen, Geräten", 5],
     ["Freigabe Entwurf → geprüft → abgeschlossen"],
     ["Fahrtenbuch- und Atemschutz-Übernahme, Druckansicht"]],
     fix: "0.7.1: Anhänge mit Bezeichnung, Fotogalerie" },
   { v: "0.6.0", d: "14.11.", t: "Atemschutz", p: [
-    ["Geräteträger mit berechneter Einsatzbereitschaft", 8],
+    ["Geräteträger mit berechneter Einsatzbereitschaft", 9],
     ["G 26.3 verschlüsselt mit eigenem Recht"]] },
   { v: "0.5.0", d: "14.11.", t: "Geräte & Prüfungen", p: [
-    ["Inventar, Prüfarten nach DGUV/DIN, Prüfprotokolle", 7],
-    ["QR-Etiketten, Beladeplan je Fahrzeug", 49]] },
+    ["Inventar, Prüfarten nach DGUV/DIN, Prüfprotokolle", 8],
+    ["QR-Etiketten, Beladeplan je Fahrzeug", 38]] },
   { v: "0.4.0", d: "13.11.", t: "Fahrzeuge", p: [
-    ["Fahrzeugstamm, Fristen, Fahrtenbuch, Mängel", 6],
-    ["Seite „Über Glutnest“, automatische Releases", 52]] },
+    ["Fahrzeugstamm, Fristen, Fahrtenbuch, Mängel", 7],
+    ["Seite „Über Glutnest“, automatische Releases", 40]] },
   { v: "0.3.0", d: "13.11.", t: "Personal & Qualifikationen", p: [
-    ["Mitglieder, Qualifikationen, Funktionen, Dienstgrade", 3],
+    ["Mitglieder, Qualifikationen, Funktionen, Dienstgrade", 4],
     ["Bankverbindung verschlüsselt, „Meine Daten“, CSV"]] },
   { v: "0.2.0", d: "13.11.", t: "Rollen, 2FA & Themes", p: [
-    ["Frei konfigurierbare Rollen, Pflicht-2FA (TOTP)", 2],
+    ["Frei konfigurierbare Rollen, Pflicht-2FA (TOTP)", 3],
     ["Themes Wache/Klar/Leitstand, Hell/Dunkel, Logo", 29]] },
   { v: "0.1.0", d: "13.11.", t: "Grundgerüst", p: [
-    ["Django, Mandanten mit Row-Level-Security", 1],
+    ["Django, Mandanten mit Row-Level-Security", 2],
     ["Docker Compose mit Traefik, Image in GHCR"]] },
 ];
 
@@ -292,34 +271,33 @@ const karte = ([n, titel, text]) => `
   <div class="karte"><h3>${titel} ${issue(n)}</h3><p>${text}</p></div>`;
 
 document.getElementById("phase1").innerHTML = [
-  [11, "Lizenzsystem", "Signierte Lizenzschlüssel (Ed25519) mit Nutzerlimit, Modulen und Laufzeit, offline geprüft"],
-  [12, "Lizenz-Generator", "Internes Werkzeug nur für den Hersteller, mit Register aller Lizenzen"],
-  [37, "Ersteinrichtungs-Assistent", "Wehr, Standorte und ersten Admin im Browser anlegen statt per Kommandozeile"],
-  [9, "Datenimport", "Arigon, MP Feuer, Divera und Excel/CSV mit Feldzuordnung, Vorschau und Probelauf"],
-  [10, "Bundesländer-Konfiguration", "Kataloge, Begriffe, Fristen und Statistikfelder je Land; RLP zuerst"],
+  [12, "Lizenzsystem", "Lizenz mit Nutzerlimit, Modulen und Laufzeit, offline geprüft"],
+  [13, "Lizenz-Generator", "Internes Werkzeug nur für den Hersteller, mit Register aller Lizenzen"],
+  [30, "Ersteinrichtungs-Assistent", "Wehr, Standorte und ersten Admin im Browser anlegen statt per Kommandozeile"],
+  [10, "Datenimport", "Arigon, MP Feuer, Divera und Excel/CSV mit Feldzuordnung, Vorschau und Probelauf"],
+  [11, "Bundesländer-Konfiguration", "Kataloge, Begriffe, Fristen und Statistikfelder je Land; RLP zuerst"],
   [26, "Sicherheit", "Grundschutz größtenteils umgesetzt (2FA, CSP, RLS, Verschlüsselung); offen: Scans in CI, Pentest vor Verkauf"],
   [27, "Datenschutz (DSGVO)", "Verarbeitungsverzeichnis, AVV-Vorlage, Auskunft/Export/Löschung je Person und Wehr"],
-  [56, "Projekt-Webseite", "Diese Webseite auf glutnest.eu mit Funktionen, Screenshots und Kontakt"],
 ].map(karte).join("");
 
 document.getElementById("phase2").innerHTML = [
-  [43, "Mehrere Standorte je Mitglied", "Mitgliedschaft in mehreren Standorten und Gruppen mit Historie"],
-  [46, "PDF-Export Mitgliederlisten", "Gefilterte Liste als PDF mit Wehrlogo"],
-  [59, "Einsatzberichte: Reste", "Serverseitiges PDF, Stichworte je Land, Vier-Augen-Prüfung, defekte Geräte melden"],
-  [54, "Geräte: Sammelprüfung & Soll/Ist", "Viele Geräte in einem Durchgang prüfen, Soll-Beladung, Gerätetausch"],
+  [33, "Mehrere Standorte je Mitglied", "Mitgliedschaft in mehreren Standorten und Gruppen mit Historie"],
+  [36, "PDF-Export Mitgliederlisten", "Gefilterte Liste als PDF mit Wehrlogo"],
+  [43, "Einsatzberichte: Reste", "Serverseitiges PDF, Stichworte je Land, Vier-Augen-Prüfung, defekte Geräte melden"],
+  [41, "Geräte: Sammelprüfung & Soll/Ist", "Viele Geräte in einem Durchgang prüfen, Soll-Beladung, Gerätetausch"],
 ].map(karte).join("");
 
 const spaeter = [
-  [13, "Alarmierung", "PWA-Push, Rückmeldung komme/komme nicht, Verfügbarkeit, Alarmmonitor"],
-  [14, "Native Apps iOS/Android", "Zuverlässige, laute Alarmierung und mobile Erfassung"],
-  [15, "SMS- und Sprachanruf-Gateway", "Rückfallebene der Alarmierung"],
-  [16, "Leitstelle, DME, Sirenen", "Alarmeingang automatisch übernehmen (Fax/Mail, FMS/ZVEI/POCSAG)"],
-  [17, "Single Sign-on (OIDC)", "Microsoft 365, Google, Keycloak; Gruppen zu Rollen"],
-  [18, "Dienstplan & Bereitschaften", "Bereitschaften, Tagesverfügbarkeit, Diensttausch"],
-  [23, "Jugend- und Kinderfeuerwehr", "Erziehungsberechtigte, Einverständnisse, Leistungsabzeichen, Übertritt"],
-  [24, "SaaS-Betrieb", "Mandantenverwaltung, Selbstregistrierung, Abrechnung"],
-  [48, "Fahrtenbuch am Fahrzeug-Tablet", "Touch-Fahrtenbuch mit Unterschrift und Gerätekonto"],
-  [71, "Landesstatistik-Export", "Jahreszahlen im Format der Landesstatistik (RLP zuerst), bewusst verschoben"],
+  [14, "Alarmierung", "PWA-Push, Rückmeldung komme/komme nicht, Verfügbarkeit, Alarmmonitor"],
+  [15, "Native Apps iOS/Android", "Zuverlässige, laute Alarmierung und mobile Erfassung"],
+  [16, "SMS- und Sprachanruf-Gateway", "Rückfallebene der Alarmierung"],
+  [17, "Leitstelle, DME, Sirenen", "Alarmeingang automatisch übernehmen (Fax/Mail, FMS/ZVEI/POCSAG)"],
+  [18, "Single Sign-on (OIDC)", "Microsoft 365, Google, Keycloak; Gruppen zu Rollen"],
+  [19, "Dienstplan & Bereitschaften", "Bereitschaften, Tagesverfügbarkeit, Diensttausch"],
+  [24, "Jugend- und Kinderfeuerwehr", "Erziehungsberechtigte, Einverständnisse, Leistungsabzeichen, Übertritt"],
+  [25, "SaaS-Betrieb", "Mandantenverwaltung, Selbstregistrierung, Abrechnung"],
+  [37, "Fahrtenbuch am Fahrzeug-Tablet", "Touch-Fahrtenbuch mit Unterschrift und Gerätekonto"],
+  [47, "Landesstatistik-Export", "Jahreszahlen im Format der Landesstatistik (RLP zuerst), bewusst verschoben"],
   [28, "Mehrsprachigkeit", "Österreich und Schweiz, vorgemerkt für ca. 2027"],
 ];
 document.getElementById("spaeter").innerHTML = spaeter.map(([n, titel, text]) => `

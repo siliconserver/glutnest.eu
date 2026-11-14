@@ -1,0 +1,21 @@
+name: Funktionswunsch
+description: Idee oder Wunsch für Glutnest.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: wunsch
+    attributes:
+      label: Was wünschst du dir?
+      description: Beschreibe, was Glutnest können soll und wofür eure Wehr das braucht.
+    validations:
+      required: true
+  - type: input
+    id: bereich
+    attributes:
+      label: Bereich
+      placeholder: z. B. Personal, Einsätze, Fahrzeuge, Atemschutz …
+  - type: input
+    id: land
+    attributes:
+      label: Bundesland
+      description: Hilfreich, wenn es um landesspezifische Regeln geht.
