@@ -77,6 +77,8 @@ Glutnest wird laufend weiterentwickelt. Was fertig ist und was als Nächstes kom
 
 ## Wer steckt hinter Glutnest?
 
+<img src="bilder/christian.webp" width="140" align="right" alt="Porträt von Christian">
+
 Ich bin Christian und seit acht Jahren aktiv in der Freiwilligen Feuerwehr. Dort bin ich unter anderem Truppführer, Web- und Postmaster, Ansprechpartner für den Atemschutz und Teil der Leitung der Facheinheit Drohne.
 
 Beruflich bin ich IT-Führungskraft bei einem großen E-Mail- und Nachrichtenanbieter und blicke auf fast 20 Jahre Erfahrung in IT-Security und IT-Operations zurück. Dazu gehört der Betrieb von Systemen, die der BSI-KritisV unterliegen und nach ISO/IEC 27001 auditiert und zertifiziert sind. Hochverfügbarkeit, Datensouveränität, Linux, Docker und Kubernetes sowie Automatisierung mit Puppet, Ansible und Terraform sind mein tägliches Brot.
