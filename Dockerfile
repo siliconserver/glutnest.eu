@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.title="glutnest.eu" \
       org.opencontainers.image.source="https://github.com/siliconserver/glutnest.eu"
 
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --chown=nginx:nginx index.html 404.html robots.txt sitemap.xml /usr/share/nginx/html/
+COPY --chown=nginx:nginx index.html 404.html robots.txt sitemap.xml version.json /usr/share/nginx/html/
 COPY --chown=nginx:nginx assets /usr/share/nginx/html/assets
 COPY --chown=nginx:nginx bilder /usr/share/nginx/html/bilder
 COPY --chown=nginx:nginx roadmap /usr/share/nginx/html/roadmap
