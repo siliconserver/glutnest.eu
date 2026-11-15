@@ -14,6 +14,7 @@
   <a href="https://glutnest.eu"><strong>glutnest.eu</strong></a> ·
   <a href="https://glutnest.eu/roadmap/">Roadmap</a> ·
   <a href="https://github.com/siliconserver/glutnest.eu/issues">Wünsche &amp; Fehler</a> ·
+  <a href="https://status.glutnest.eu/">Status</a> ·
   <a href="https://glutnest.eu/#kontakt">Als Interessent vormerken</a>
 </p>
 
@@ -56,6 +57,8 @@ Hell- und Dunkelmodus, drei Oberflächen zur Wahl (Wache, Klar, Leitstand) sowie
 
 - **On-Premises:** Glutnest läuft auf eurem eigenen Server, etwa bei der Verbandsgemeinde oder Stadt. Eine Wehr mit beliebig vielen Standorten, die Daten verlassen euer Netz nicht.
 - **Cloud (geplant):** Wir betreiben Glutnest für euch, mit Hosting ausschließlich in Deutschland. Jede Wehr ist strikt von anderen getrennt, Backups und Updates sind inklusive.
+
+Eine gültige Lizenz enthält immer alle Updates und neuen Versionen, egal welcher Weg.
 
 ## Sicherheit & Datenschutz
 

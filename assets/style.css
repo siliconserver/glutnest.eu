@@ -118,6 +118,8 @@ section.alt .modul { background: var(--flaeche-2); }
 .option > p { color: var(--leise); margin: 0 0 14px; }
 .option ul { margin: 0; padding-left: 20px; }
 .option li { margin: 6px 0; }
+.lizenz-hinweis { display: flex; gap: 12px; align-items: flex-start; margin: 20px 0 0; padding: 18px 22px; border: 1px solid var(--linie); border-radius: var(--rund); background: var(--flaeche-2); }
+.lizenz-hinweis svg.i { flex: none; color: var(--akzent-text); margin-top: 2px; }
 
 /* Sicherheit */
 .sicher { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -149,8 +151,11 @@ section.alt .modul { background: var(--flaeche-2); }
 /* Fuß */
 .fuss { border-top: 1px solid var(--linie); padding: 28px 0 40px; font-size: 14px; color: var(--leise); }
 .fuss .innen { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
-.fuss nav { display: flex; gap: 18px; margin-left: auto; }
+.fuss nav { display: flex; gap: 18px; margin-left: auto; flex-wrap: wrap; align-items: center; }
 .fuss a { color: var(--leise); }
+.fuss a.status-knopf { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border: 1px solid var(--linie); border-radius: 999px; color: var(--text); background: var(--flaeche); text-decoration: none; }
+.fuss a.status-knopf:hover { border-color: var(--akzent-text); }
+.status-knopf .punkt { width: 8px; height: 8px; border-radius: 50%; background: light-dark(#16a34a, #4ade80); }
 
 /* Rechtstexte */
 .rechtstext { max-width: 760px; padding: 56px 28px 80px; margin: 0 auto; }
