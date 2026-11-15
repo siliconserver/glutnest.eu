@@ -118,6 +118,8 @@ section.alt .modul { background: var(--flaeche-2); }
 .option > p { color: var(--leise); margin: 0 0 14px; }
 .option ul { margin: 0; padding-left: 20px; }
 .option li { margin: 6px 0; }
+.lizenz-hinweis { display: flex; gap: 12px; align-items: flex-start; margin: 20px 0 0; padding: 18px 22px; border: 1px solid var(--linie); border-radius: var(--rund); background: var(--flaeche-2); }
+.lizenz-hinweis svg.i { flex: none; color: var(--akzent-text); margin-top: 2px; }
 
 /* Sicherheit */
 .sicher { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }

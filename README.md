@@ -57,6 +57,8 @@ Hell- und Dunkelmodus, drei Oberflächen zur Wahl (Wache, Klar, Leitstand) sowie
 - **On-Premises:** Glutnest läuft auf eurem eigenen Server, etwa bei der Verbandsgemeinde oder Stadt. Eine Wehr mit beliebig vielen Standorten, die Daten verlassen euer Netz nicht.
 - **Cloud (geplant):** Wir betreiben Glutnest für euch, mit Hosting ausschließlich in Deutschland. Jede Wehr ist strikt von anderen getrennt, Backups und Updates sind inklusive.
 
+Eine gültige Lizenz enthält immer alle Updates und neuen Versionen, egal welcher Weg.
+
 ## Sicherheit & Datenschutz
 
 Feuerwehren verwalten Gesundheitsdaten, Bankverbindungen und Einsatzberichte. Deshalb gilt in Glutnest:
