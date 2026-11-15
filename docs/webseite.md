@@ -21,17 +21,32 @@ python3 -m http.server 8000
 
 ## Veröffentlichung
 
-Jeder Push bzw. Merge nach `main` veröffentlicht die Seite automatisch über GitHub Actions (`.github/workflows/pages.yml`) auf GitHub Pages.
+Die Seite läuft als Docker-Container (nginx ohne Root-Rechte, Port 8080) hinter Traefik.
 
-Einmalige Einrichtung:
+- Jeder Merge nach `main` baut über GitHub Actions (`.github/workflows/image.yml`) das Image `ghcr.io/siliconserver/glutnest.eu` für amd64 und arm64 und veröffentlicht es mit den Tags `latest`, `main` und `sha-…`. Git-Tags `v1.2.3` ergeben zusätzlich `1.2.3`.
+- Pull Requests bauen das Image nur zum Test, ohne es zu veröffentlichen.
+- `Dockerfile` und `docker/nginx.conf` legen fest, was ausgeliefert wird. Neue Ordner der Seite müssen im `Dockerfile` und in `.dockerignore` ergänzt werden.
 
-1. Repository → Settings → Pages → Source: **GitHub Actions**.
-2. Custom domain: `glutnest.eu` (steht auch in `CNAME`), danach **Enforce HTTPS** aktivieren.
-3. DNS beim Domain-Anbieter:
-   - `glutnest.eu` A-Records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - optional AAAA: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - `www.glutnest.eu` CNAME auf `siliconserver.github.io`
-4. Empfohlen: Domain unter GitHub → Settings (Profil) → Pages verifizieren, damit niemand sonst sie übernehmen kann.
+### Lokal als Container testen
+
+```sh
+docker build -t glutnest-web .
+docker run --rm -p 8080:8080 glutnest-web
+# http://localhost:8080
+```
+
+### Auf dem Server
+
+1. `deploy/docker-compose.yml` z. B. nach `/opt/glutnest-web/` kopieren. Die Voreinstellungen passen zum vorhandenen Traefik (Netz `proxy`, Entrypoint `websecure`, Zertifikat über `letsencryptdns`).
+2. DNS: `glutnest.eu` und `www.glutnest.eu` als A-/AAAA-Record auf den Server zeigen lassen. `www` leitet auf `glutnest.eu` um.
+3. Falls das Paket auf ghcr.io privat ist: einmal `docker login ghcr.io` mit einem Token mit `read:packages`, oder das Paket unter GitHub → Packages → glutnest.eu → Package settings auf **Public** stellen.
+4. Starten bzw. aktualisieren:
+
+```sh
+docker compose pull && docker compose up -d
+```
+
+Wer automatisch aktualisieren will, kann z. B. Watchtower nur für diesen Container einsetzen.
 
 ## Screenshots tauschen
 
