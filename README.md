@@ -15,6 +15,7 @@
   <a href="https://glutnest.eu/roadmap/">Roadmap</a> ·
   <a href="https://github.com/siliconserver/glutnest.eu/issues">Wünsche &amp; Fehler</a> ·
   <a href="https://status.glutnest.eu/">Status</a> ·
+  <a href="#wer-steckt-hinter-glutnest">Über mich</a> ·
   <a href="https://glutnest.eu/#kontakt">Als Interessent vormerken</a>
 </p>
 
@@ -73,6 +74,24 @@ Feuerwehren verwalten Gesundheitsdaten, Bankverbindungen und Einsatzberichte. De
 ## Wie geht es weiter?
 
 Glutnest wird laufend weiterentwickelt. Was fertig ist und was als Nächstes kommt, zeigt die [Roadmap](https://glutnest.eu/roadmap/). Wünsche und Fehler nehmen wir gern über die [Issues](https://github.com/siliconserver/glutnest.eu/issues/new/choose) entgegen. Bitte dabei keine echten Personendaten eintragen.
+
+## Wer steckt hinter Glutnest?
+
+<img src="bilder/christian.webp" width="140" align="right" alt="Porträt von Christian">
+
+Ich bin Christian und seit acht Jahren aktiv in der Freiwilligen Feuerwehr. Dort bin ich unter anderem Truppführer, Web- und Postmaster, Ansprechpartner für den Atemschutz und Teil der Leitung der Facheinheit Drohne.
+
+Beruflich bin ich IT-Führungskraft bei einem großen E-Mail- und Nachrichtenanbieter und blicke auf fast 20 Jahre Erfahrung in IT-Security und IT-Operations zurück. Dazu gehört der Betrieb von Systemen, die der BSI-KritisV unterliegen und nach ISO/IEC 27001 auditiert und zertifiziert sind. Hochverfügbarkeit, Datensouveränität, Linux, Docker und Kubernetes sowie Automatisierung mit Puppet, Ansible und Terraform sind mein tägliches Brot.
+
+Glutnest ist aus dem Alltag in unserer Wehr entstanden. Die eingesetzte Verwaltungssoftware war oft zu umständlich oder konnte manches gar nicht. Immer wieder kam mir der Gedanke, dass ich das selbst besser und einfacher lösen könnte. Angefangen hat es mit einer Verwaltung für Atemschutzgeräteträger, dann kam ein Schulungstool für UVV-Unterweisungen dazu, und nach und nach wurden es immer mehr eigene Lösungen. Irgendwann stand fest: Ich schreibe eine komplette Verwaltungssoftware von Grund auf neu, mit allem, was im Feuerwehralltag wirklich gebraucht wird.
+
+Deshalb baue ich Glutnest so, wie ich es mir als Feuerwehrmann selbst wünsche:
+
+- **Aus der Praxis für die Praxis:** Jede Funktion entstand aus einem echten Problem in einer echten Wehr.
+- **Feuerwehrtauglich:** Glutnest soll intuitiv und einfach zu bedienen sein.
+- **Erweiterbar:** Ich höre zu und nehme Wünsche und Ideen gerne auf. Ihr könnt sie [hier als Vorschlag einreichen](https://github.com/siliconserver/glutnest.eu/issues).
+- **Datenschutz ohne Kompromisse:** Hosting nur in Deutschland oder bei euch vor Ort, Zwei-Faktor-Anmeldung für alle.
+- **Ein fester Ansprechpartner:** Ihr schreibt nicht an eine Hotline, sondern direkt an mich.
 
 ## Stand & Kontakt
 
