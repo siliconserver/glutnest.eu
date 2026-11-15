@@ -2,9 +2,33 @@ const ISSUES = "https://github.com/siliconserver/glutnest.eu/issues/";
 const issue = n => `<a class="chip" href="${ISSUES}${n}">#${n}</a>`;
 
 const releases = [
+  { v: "0.22.0", d: "15.11.", t: "Ganze Plattform wiederherstellen", p: [
+    ["Notfall-Wiederherstellung aller Wehren aus einer Sicherung"],
+    ["Wartungsseite während des Zurückspielens, danach automatisch aktuell"]] },
+  { v: "0.21.0", d: "15.11.", t: "Datenschutz (DSGVO)", p: [
+    ["Aufbewahrungsfristen je Wehr, Glutnest zeigt Abgelaufenes an", 27],
+    ["Datenauskunft je Person als ZIP, auch unter „Meine Daten“", 27],
+    ["Mitglied nach Austritt löschen, Unterlagen der Wehr bleiben", 27],
+    ["Gefahrstoff-Exposition an Einsätzen und Diensten vermerken", 27],
+    ["Vorlagen für Verarbeitungsverzeichnis, TOM und AVV", 27]] },
+  { v: "0.20.0", d: "15.11.", t: "Wiederherstellen aus Plattform-Sicherung", p: [
+    ["Einzelne Wehren aus einer Sicherung der Plattform zurückholen"],
+    ["Heruntergeladene Sicherung einer Wehr wieder hochladen"]] },
+  { v: "0.19.0", d: "15.11.", t: "Backup jederzeit auslösen", p: [
+    ["„Jetzt sichern“ und Zustand des Backup-Dienstes auf einen Blick"]],
+    fix: "Klare Hinweise, wenn der Server Sicherungen nicht speichern kann" },
+  { v: "0.18.0", d: "15.11.", t: "Ersteinrichtung & Plattform-Lizenz", p: [
+    ["Ersteinrichtung im Browser in drei Schritten", 30],
+    ["Mehrere Wehren auf einem Server mit Plattform-Lizenz", 12]] },
+  { v: "0.17.0", d: "15.11.", t: "Lizenz", p: [
+    ["Lizenz mit Laufzeit, Benutzerzahl und Modulen, offline geprüft", 12],
+    ["Alle Updates inklusive, solange die Lizenz gilt", 12],
+    ["Grundpaket immer dabei, Zusatzmodule einzeln wählbar", 12],
+    ["30 Tage Testbetrieb mit allen Modulen", 12]] },
   { v: "0.16.0", d: "14.11.", t: "Sicherung & Plattform-Verwaltung", p: [
     ["Sicherung und Wiederherstellung je Wehr in den Einstellungen", 46],
-    ["Plattform-Verwaltung im Glutnest-Design mit Backup-Verlauf", 50]] },
+    ["Plattform-Verwaltung im Glutnest-Design mit Backup-Verlauf", 50]],
+    fix: "0.16.1: Wünsche und Fehler jetzt öffentlich auf GitHub" },
   { v: "0.15.0", d: "14.11.", t: "Kommunikation & Kleiderkammer", p: [
     ["Mitteilungen, Umfragen und Dokumentenablage", 22],
     ["Kleiderkammer & PSA mit Lebensdauer und Prüfungen", 21],
@@ -73,13 +97,9 @@ const karte = ([n, titel, text]) => `
   <div class="karte"><h3>${titel} ${issue(n)}</h3><p>${text}</p></div>`;
 
 document.getElementById("phase1").innerHTML = [
-  [12, "Lizenzsystem", "Lizenz mit Nutzerlimit, Modulen und Laufzeit, offline geprüft"],
-  [13, "Lizenz-Generator", "Internes Werkzeug nur für den Hersteller, mit Register aller Lizenzen"],
-  [30, "Ersteinrichtungs-Assistent", "Wehr, Standorte und ersten Admin im Browser anlegen statt per Kommandozeile"],
-  [10, "Datenimport", "Arigon, MP Feuer, Divera und Excel/CSV mit Feldzuordnung, Vorschau und Probelauf"],
+  [26, "Sicherheit", "Als Nächstes: Grundschutz steht (2FA, CSP, Verschlüsselung, Trennung der Wehren); offen sind regelmäßige Sicherheitsprüfungen und ein Pentest vor dem Verkauf"],
   [11, "Bundesländer-Konfiguration", "Kataloge, Begriffe, Fristen und Statistikfelder je Land; RLP zuerst"],
-  [26, "Sicherheit", "Grundschutz größtenteils umgesetzt (2FA, CSP, RLS, Verschlüsselung); offen: Scans in CI, Pentest vor Verkauf"],
-  [27, "Datenschutz (DSGVO)", "Verarbeitungsverzeichnis, AVV-Vorlage, Auskunft/Export/Löschung je Person und Wehr"],
+  [10, "Datenimport", "Arigon, MP Feuer, Divera und Excel/CSV mit Feldzuordnung, Vorschau und Probelauf; vorerst zurückgestellt"],
 ].map(karte).join("");
 
 document.getElementById("phase2").innerHTML = [
