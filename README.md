@@ -14,7 +14,7 @@
   <a href="https://glutnest.eu"><strong>glutnest.eu</strong></a> ·
   <a href="https://glutnest.eu/roadmap/">Roadmap</a> ·
   <a href="https://github.com/siliconserver/glutnest.eu/issues">Wünsche &amp; Fehler</a> ·
-  <a href="https://uptime.siliconserver.it/status/glutnest">Status</a> ·
+  <a href="https://status.glutnest.eu/">Status</a> ·
   <a href="https://glutnest.eu/#kontakt">Als Interessent vormerken</a>
 </p>
 
