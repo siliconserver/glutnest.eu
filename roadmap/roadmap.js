@@ -2,6 +2,37 @@ const ISSUES = "https://github.com/siliconserver/glutnest.eu/issues/";
 const issue = n => `<a class="chip" href="${ISSUES}${n}">#${n}</a>`;
 
 const releases = [
+  { v: "0.29.0", d: "16.11.", t: "Mailtexte & Dokumentation", p: [
+    ["Mailtexte selbst anpassen, mit Platzhaltern und Vorschau", 66],
+    ["Dokumentation auf glutnest.eu, Link direkt zum passenden Kapitel", 60]] },
+  { v: "0.28.0", d: "15.11.", t: "Einsatzberichte & Update-Hinweis", p: [
+    ["Einsatzbericht als PDF mit Logo und Unterschriftszeile", 43],
+    ["Vier-Augen-Prüfung, defektes Gerät direkt aus dem Bericht melden", 43],
+    ["Einsatzstichworte je Bundesland", 43],
+    ["Mailserver der Plattform im Browser einstellen", 58],
+    ["Hinweis auf neue Versionen", 59]],
+    fix: "0.28.1: PDF-Export mit Wehrlogo korrigiert" },
+  { v: "0.27.0", d: "15.11.", t: "Geräte: Sammelprüfung & Beladung", p: [
+    ["Viele Geräte in einem Durchgang prüfen, ein gemeinsames Protokoll", 41],
+    ["Gerätetausch und Verlauf je Gerät", 41],
+    ["Soll-Beladung je Fahrzeug, Beladungskontrolle nach dem Einsatz", 41]] },
+  { v: "0.26.0", d: "15.11.", t: "Mehrere Standorte je Mitglied", p: [
+    ["Mitglied in mehreren Standorten, z. B. als Jugendwart", 33],
+    ["Wechsel mit Datum, Historie bleibt erhalten", 33],
+    ["Übergreifende Übungen mit Mitgliedern anderer Standorte", 33]],
+    fix: "0.26.1: technische Aktualisierung" },
+  { v: "0.25.0", d: "15.11.", t: "Mitgliederlisten drucken", p: [
+    ["Mitgliederliste als PDF mit Logo und wählbaren Spalten", 36],
+    ["Anwesenheitsliste mit Unterschriftsfeldern", 36],
+    ["Dienstgrade und Funktionen in der passenden Form, z. B. „Brandmeisterin“", 36]] },
+  { v: "0.24.0", d: "15.11.", t: "Alle 16 Bundesländer", p: [
+    ["Begriffe, Dienstgrade, Funktionen und Ehrenzeichen je Land", 11],
+    ["Hinweis, solange ein Land noch nicht von einer Wehr geprüft ist; RLP ist geprüft", 11]],
+    fix: "0.24.1: Flammenlogo im Browser-Tab" },
+  { v: "0.23.0", d: "15.11.", t: "Sicherheit", p: [
+    ["Anmeldesperre nach zu vielen Fehlversuchen", 26],
+    ["Automatische Sicherheitsprüfungen bei jeder Änderung", 26],
+    ["Sicherheitsrichtlinie mit Meldeweg und Reaktionszeiten", 26]] },
   { v: "0.22.0", d: "15.11.", t: "Ganze Plattform wiederherstellen", p: [
     ["Notfall-Wiederherstellung aller Wehren aus einer Sicherung"],
     ["Wartungsseite während des Zurückspielens, danach automatisch aktuell"]] },
@@ -94,19 +125,11 @@ document.getElementById("erledigt").innerHTML = releases.map(r => `
   </article>`).join("");
 
 const karte = ([n, titel, text]) => `
-  <div class="karte"><h3>${titel} ${issue(n)}</h3><p>${text}</p></div>`;
+  <div class="karte"><h3>${titel} ${n ? issue(n) : ""}</h3><p>${text}</p></div>`;
 
 document.getElementById("phase1").innerHTML = [
-  [26, "Sicherheit", "Als Nächstes: Grundschutz steht (2FA, CSP, Verschlüsselung, Trennung der Wehren); offen sind regelmäßige Sicherheitsprüfungen und ein Pentest vor dem Verkauf"],
-  [11, "Bundesländer-Konfiguration", "Kataloge, Begriffe, Fristen und Statistikfelder je Land; RLP zuerst"],
-  [10, "Datenimport", "Arigon, MP Feuer, Divera und Excel/CSV mit Feldzuordnung, Vorschau und Probelauf; vorerst zurückgestellt"],
-].map(karte).join("");
-
-document.getElementById("phase2").innerHTML = [
-  [33, "Mehrere Standorte je Mitglied", "Mitgliedschaft in mehreren Standorten und Gruppen mit Historie"],
-  [36, "PDF-Export Mitgliederlisten", "Gefilterte Liste als PDF mit Wehrlogo"],
-  [43, "Einsatzberichte: Reste", "Serverseitiges PDF, Stichworte je Land, Vier-Augen-Prüfung, defekte Geräte melden"],
-  [41, "Geräte: Sammelprüfung & Soll/Ist", "Viele Geräte in einem Durchgang prüfen, Soll-Beladung, Gerätetausch"],
+  [10, "Datenimport", "Arigon, MP Feuer, Divera und Excel/CSV mit Feldzuordnung, Vorschau und Probelauf"],
+  [null, "Sicherheitsprüfung von außen", "Unabhängiger Penetrationstest, bevor Glutnest verkauft wird"],
 ].map(karte).join("");
 
 const spaeter = [
@@ -124,16 +147,3 @@ const spaeter = [
 ];
 document.getElementById("spaeter").innerHTML = spaeter.map(([n, titel, text]) => `
   <div class="eintrag"><span><span class="titel">${titel}</span><span class="text">${text}</span></span>${issue(n)}</div>`).join("");
-
-/* Hell/Dunkel */
-const wurzel = document.documentElement;
-const knoepfe = document.querySelectorAll(".umschalter button");
-function setze(wert) {
-  if (wert === "auto") delete wurzel.dataset.darstellung; else wurzel.dataset.darstellung = wert;
-  knoepfe.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.wert === wert)));
-  try { localStorage.setItem("glutnest-darstellung", wert); } catch (e) {}
-}
-knoepfe.forEach(b => b.addEventListener("click", () => setze(b.dataset.wert)));
-let start = new URLSearchParams(location.search).get("darstellung");
-try { start = start || localStorage.getItem("glutnest-darstellung"); } catch (e) {}
-setze(start || "auto");
