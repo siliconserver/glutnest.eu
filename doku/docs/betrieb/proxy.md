@@ -15,7 +15,9 @@ das Zertifikate bei Let's Encrypt holt.
 
 ## nginx oder Caddy
 
-`COMPOSE_PROFILES=` leer lassen und Port 8000 des Dienstes `web` nur intern freigeben.
+`COMPOSE_PROFILES=` leer lassen und Port 8000 des Dienstes `web` nur lokal freigeben,
+zum Beispiel über eine `docker-compose.override.yml` (siehe
+[Eigene Anpassungen](installation.md#eigene-anpassungen)).
 Der Proxy muss TLS übernehmen, `X-Forwarded-Proto: https` setzen und den `Host`-Header
 unverändert weiterreichen. `GLUTNEST_PROXYS` gibt an, wie viele Proxys vor Glutnest
 stehen (Standard 1).

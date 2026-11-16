@@ -14,8 +14,9 @@ docker compose up -d
 Die Datenbank wird beim Start automatisch angepasst. Ein Backup vorher schadet nie:
 `docker compose run --rm backup jetzt`.
 
-Bringt ein Update neue Einstellungen oder Dateien mit, steht das in den
-Versionshinweisen.
+Bringt ein Update eine neue `docker-compose.yml` oder neue Dateien im Ordner `docker/`
+mit, steht das in den Versionshinweisen. Ersetzt dann diese Dateien. Eure `.env` und
+eure `docker-compose.override.yml` bleiben, wie sie sind.
 
 ## Update-Hinweis abschalten
 
