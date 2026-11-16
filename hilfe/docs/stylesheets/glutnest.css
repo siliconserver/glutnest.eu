@@ -1,0 +1,18 @@
+/* Farben wie auf glutnest.eu und in Glutnest (Rot als Grundfarbe) */
+:root, [data-md-color-scheme="default"] {
+  --md-primary-fg-color: #c8102e;
+  --md-primary-fg-color--light: #e0414f;
+  --md-primary-fg-color--dark: #9e0c24;
+  --md-accent-fg-color: #c8102e;
+  --md-typeset-a-color: #a50d26;
+}
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #8f0b21;
+  --md-primary-fg-color--dark: #6d0819;
+  --md-accent-fg-color: #ff6b7d;
+  --md-typeset-a-color: #ff8a98;
+  --md-default-bg-color: #0f0f10;
+}
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+code, kbd, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+.md-typeset h1 { font-weight: 700; }

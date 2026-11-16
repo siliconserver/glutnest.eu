@@ -51,3 +51,18 @@ Wer automatisch aktualisieren will, kann z. B. Watchtower nur für diesen Contai
 ## Screenshots tauschen
 
 Bilder als WebP (ca. 1280 px breit) nach `bilder/` legen. Keine echten Personendaten verwenden.
+
+## Handbuch (/hilfe/)
+
+Quelle in `hilfe/` (MkDocs Material, Markdown unter `hilfe/docs/`, Navigation in
+`hilfe/mkdocs.yml`). Gebaut wird im Dockerfile (erste Stufe); `inline_auslagern.py`
+verschiebt die Inline-Skripte von Material in Dateien, damit die CSP ohne
+`unsafe-inline` auskommt. Lokal ansehen:
+
+```sh
+pip install -r hilfe/requirements.txt
+cd hilfe && mkdocs serve
+```
+
+Glutnest verlinkt einzelne Seiten direkt (Fragezeichen oben rechts). Seiten nicht
+umbenennen, ohne die Zuordnung in Glutnest (`core/hilfe.py`) anzupassen.

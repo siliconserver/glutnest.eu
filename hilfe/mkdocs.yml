@@ -1,0 +1,90 @@
+site_name: Glutnest Hilfe
+site_url: https://glutnest.eu/hilfe/
+site_description: Handbuch für Glutnest, die Verwaltungssoftware für Feuerwehren
+copyright: Glutnest · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a>
+docs_dir: docs
+use_directory_urls: true
+
+theme:
+  name: material
+  language: de
+  favicon: favicon.svg
+  logo: favicon.svg
+  font: false          # keine Schriften von Google laden
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Dunkel
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Hell
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.highlight
+    - content.code.copy
+
+extra:
+  generator: false     # kein „Made with“-Link
+
+extra_css:
+  - stylesheets/glutnest.css
+
+plugins:
+  - search:
+      lang: de
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.keys
+  - md_in_html
+
+nav:
+  - Start: index.md
+  - Für Mitglieder:
+      - anwender/index.md
+      - Erste Schritte: anwender/erste-schritte.md
+      - Startseite und Kalender: anwender/startseite-kalender.md
+      - Meine Daten: anwender/meine-daten.md
+      - Personal: anwender/personal.md
+      - Einsatzberichte: anwender/einsaetze.md
+      - Übungen und Dienste: anwender/uebungen.md
+      - Fahrzeuge: anwender/fahrzeuge.md
+      - Geräte und Prüfungen: anwender/geraete.md
+      - Atemschutz: anwender/atemschutz.md
+      - Mitteilungen: anwender/mitteilungen.md
+      - Kleiderkammer: anwender/kleiderkammer.md
+      - Statistik: anwender/statistik.md
+  - Für die Wehrführung:
+      - verwaltung/index.md
+      - Einrichtung der Wehr: verwaltung/einrichtung.md
+      - Benutzer und Rollen: verwaltung/rollen.md
+      - Kataloge: verwaltung/kataloge.md
+      - E-Mail und Mailtexte: verwaltung/mail.md
+      - Sicherung der Wehr: verwaltung/sicherung.md
+      - Datenschutz: verwaltung/datenschutz.md
+      - Lizenz: verwaltung/lizenz.md
+  - Für Administratoren:
+      - betrieb/index.md
+      - Installation: betrieb/installation.md
+      - Reverse Proxy: betrieb/proxy.md
+      - Updates: betrieb/updates.md
+      - Backup und Wiederherstellung: betrieb/backup.md
+      - Mailserver: betrieb/mail.md
+      - Sicherheit: betrieb/sicherheit.md
