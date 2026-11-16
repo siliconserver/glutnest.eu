@@ -1,4 +1,16 @@
 # Statische Webseite glutnest.eu, ausgeliefert von nginx ohne Root-Rechte.
+
+# Dokumentation (/doku/) mit MkDocs Material bauen. Inline-Skripte werden danach
+# in Dateien ausgelagert, damit die strenge CSP (script-src 'self') greift.
+FROM python:3.13-alpine AS doku
+WORKDIR /doku
+COPY doku/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY doku/ .
+RUN NO_MKDOCS_2_WARNING=1 mkdocs build --strict -d /site \
+    && python inline_auslagern.py /site /doku/ \
+    && find /site -name "*.map" -delete
+
 FROM nginxinc/nginx-unprivileged:1.27-alpine
 
 LABEL org.opencontainers.image.title="glutnest.eu" \
@@ -12,6 +24,7 @@ COPY --chown=nginx:nginx bilder /usr/share/nginx/html/bilder
 COPY --chown=nginx:nginx roadmap /usr/share/nginx/html/roadmap
 COPY --chown=nginx:nginx impressum /usr/share/nginx/html/impressum
 COPY --chown=nginx:nginx datenschutz /usr/share/nginx/html/datenschutz
+COPY --chown=nginx:nginx --from=doku /site /usr/share/nginx/html/doku
 
 EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
