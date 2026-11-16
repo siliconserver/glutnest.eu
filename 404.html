@@ -12,17 +12,22 @@
 <header class="nav">
   <div class="innen">
     <a class="marke" href="/"><span class="logo"><svg viewBox="0 0 24 24"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2.4 1.2-4 2.6-5.4.2 1.6.9 2.7 2 3.4C11 8 11 5 12 2Z"/><path d="M12 21a2.2 2.2 0 0 1-2.2-2.2c0-1.4 1.2-2.3 2.2-3.8 1 1.5 2.2 2.4 2.2 3.8A2.2 2.2 0 0 1 12 21Z"/></svg></span>Glutnest</a>
-    <nav class="nav-links" aria-label="Hauptmenü">
-      <a href="/#funktionen">Funktionen</a>
-      <a href="/roadmap/">Roadmap</a>
-      <a href="/doku/">Dokumentation</a>
-      <a href="/#kontakt">Kontakt</a>
-    </nav>
-    <div class="umschalter" role="group" aria-label="Darstellung">
-      <button type="button" data-wert="auto">Auto</button>
-      <button type="button" data-wert="hell">Hell</button>
-      <button type="button" data-wert="dunkel">Dunkel</button>
+    <div class="menue" id="hauptmenue">
+      <nav class="nav-links" aria-label="Hauptmenü">
+        <a href="/#funktionen">Funktionen</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/doku/">Dokumentation</a>
+        <a href="/#kontakt">Kontakt</a>
+      </nav>
+      <div class="umschalter" role="group" aria-label="Darstellung">
+        <button type="button" data-wert="auto">Auto</button>
+        <button type="button" data-wert="hell">Hell</button>
+        <button type="button" data-wert="dunkel">Dunkel</button>
+      </div>
     </div>
+    <button type="button" class="menue-knopf" aria-expanded="false" aria-controls="hauptmenue" aria-label="Menü öffnen">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="zu" d="M4 7h16M4 12h16M4 17h16"/><path class="auf" d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
   </div>
 </header>
 <main class="rechtstext">

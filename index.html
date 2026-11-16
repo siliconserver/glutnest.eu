@@ -47,21 +47,26 @@
 <header class="nav">
   <div class="innen">
     <a class="marke" href="/"><span class="logo"><svg><use href="#flamme"/></svg></span>Glutnest</a>
-    <nav class="nav-links" aria-label="Hauptmenü">
-      <a href="#funktionen">Funktionen</a>
-      <a href="#rundgang">Rundgang</a>
-      <a href="#betrieb">Betrieb</a>
-      <a href="#sicherheit">Sicherheit</a>
-      <a href="/roadmap/">Roadmap</a>
-      <a href="/doku/">Dokumentation</a>
-      <a href="#ueber-mich">Über mich</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-    <div class="umschalter" role="group" aria-label="Darstellung">
-      <button type="button" data-wert="auto">Auto</button>
-      <button type="button" data-wert="hell">Hell</button>
-      <button type="button" data-wert="dunkel">Dunkel</button>
+    <div class="menue" id="hauptmenue">
+      <nav class="nav-links" aria-label="Hauptmenü">
+        <a href="#funktionen">Funktionen</a>
+        <a href="#rundgang">Rundgang</a>
+        <a href="#betrieb">Betrieb</a>
+        <a href="#sicherheit">Sicherheit</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/doku/">Dokumentation</a>
+        <a href="#ueber-mich">Über mich</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="umschalter" role="group" aria-label="Darstellung">
+        <button type="button" data-wert="auto">Auto</button>
+        <button type="button" data-wert="hell">Hell</button>
+        <button type="button" data-wert="dunkel">Dunkel</button>
+      </div>
     </div>
+    <button type="button" class="menue-knopf" aria-expanded="false" aria-controls="hauptmenue" aria-label="Menü öffnen">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="zu" d="M4 7h16M4 12h16M4 17h16"/><path class="auf" d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
   </div>
 </header>
 

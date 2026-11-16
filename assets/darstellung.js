@@ -19,3 +19,23 @@
     if (b) setze(b.dataset.wert);
   });
 })();
+
+/* Menü auf dem Handy auf- und zuklappen. */
+(function () {
+  function schalte(nav, offen) {
+    nav.classList.toggle("offen", offen);
+    var k = nav.querySelector(".menue-knopf");
+    k.setAttribute("aria-expanded", String(offen));
+    k.setAttribute("aria-label", offen ? "Menü schließen" : "Menü öffnen");
+  }
+  document.addEventListener("click", function (e) {
+    var nav = document.querySelector(".nav");
+    if (!nav || !nav.querySelector(".menue-knopf")) return;
+    if (e.target.closest(".menue-knopf")) schalte(nav, !nav.classList.contains("offen"));
+    else if (e.target.closest(".nav-links a") || !e.target.closest(".nav")) schalte(nav, false);
+  });
+  document.addEventListener("keydown", function (e) {
+    var nav = document.querySelector(".nav.offen");
+    if (nav && e.key === "Escape") { schalte(nav, false); nav.querySelector(".menue-knopf").focus(); }
+  });
+})();
