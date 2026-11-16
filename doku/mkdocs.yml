@@ -1,6 +1,6 @@
-site_name: Glutnest Hilfe
-site_url: https://glutnest.eu/hilfe/
-site_description: Handbuch für Glutnest, die Verwaltungssoftware für Feuerwehren
+site_name: Glutnest Dokumentation
+site_url: https://glutnest.eu/doku/
+site_description: Dokumentation für Glutnest, die Verwaltungssoftware für Feuerwehren
 copyright: Glutnest · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a>
 docs_dir: docs
 use_directory_urls: true

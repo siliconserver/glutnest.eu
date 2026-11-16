@@ -5,7 +5,7 @@ Die Webseite erlaubt per Content-Security-Policy nur Skripte vom eigenen Server
 Inline-Skript als Datei unter assets/javascripts/inline-<hash>.js und wird per
 src eingebunden. Die Reihenfolge bleibt, die Skripte laufen weiter synchron.
 
-Aufruf: python inline_auslagern.py <site-ordner> <basis-pfad, z. B. /hilfe/>
+Aufruf: python inline_auslagern.py <site-ordner> <basis-pfad, z. B. /doku/>
 """
 
 import hashlib

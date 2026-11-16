@@ -1,7 +1,7 @@
-# Glutnest Hilfe
+# Glutnest Dokumentation
 
 Glutnest ist die Verwaltung für deine Feuerwehr im Browser: Personal, Einsatzberichte,
-Übungen, Fahrzeuge, Geräte, Atemschutz und mehr an einem Ort. Dieses Handbuch erklärt
+Übungen, Fahrzeuge, Geräte, Atemschutz und mehr an einem Ort. Diese Dokumentation erklärt
 Schritt für Schritt, wie du damit arbeitest.
 
 <div class="grid cards" markdown>
@@ -17,9 +17,10 @@ Schritt für Schritt, wie du damit arbeitest.
 
 </div>
 
-!!! tip "Hilfe direkt in Glutnest"
-    Auf vielen Seiten in Glutnest führt das **?** oben rechts direkt zum passenden
-    Kapitel. Unter **Einstellungen → Hilfe** findest du den Weg hierher.
+!!! tip "Direkt aus Glutnest hierher"
+    Unten auf jeder Seite in Glutnest führt der Link **Dokumentation zu dieser Seite**
+    direkt zum passenden Kapitel. Unter **Einstellungen → Dokumentation** kommst du
+    jederzeit auf diese Startseite.
 
 Du findest etwas nicht oder hast eine Idee? Schreib uns an
 [kontakt@glutnest.eu](mailto:kontakt@glutnest.eu).
