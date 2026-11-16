@@ -7,6 +7,8 @@
 <meta name="description" content="Roadmap von Glutnest: was fertig ist, woran gearbeitet wird und was geplant ist.">
 <link rel="canonical" href="https://glutnest.eu/roadmap/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/darstellung.js"></script>
 <style>
 :root {
   color-scheme: light dark;
@@ -39,26 +41,19 @@ a:hover { text-decoration: underline; }
 svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Kopf */
-.kopf { background: var(--akzent-tief); color: #fff; }
+.rm-kopf { background: var(--akzent-tief); color: #fff; }
 .kopf-innen { max-width: 1180px; margin: 0 auto; padding: 28px 28px 30px; }
 .kopfzeile { display: flex; align-items: center; gap: 14px; }
-.logo { width: 46px; height: 46px; border-radius: 10px; background: #fff; color: var(--marke);
-  display: grid; place-items: center; flex: none; }
-.logo svg { width: 28px; height: 28px; }
-.kopf h1 { margin: 0; font-size: 1.6rem; line-height: 1.15; }
-.kopf .unter { color: rgb(255 255 255 / .75); font-size: 14px; }
-.umschalter { margin-left: auto; display: flex; background: rgb(255 255 255 / .12); border-radius: 999px; padding: 3px; }
-.umschalter button { border: 0; background: transparent; color: #fff; font: inherit; font-size: 13px;
-  padding: 5px 12px; border-radius: 999px; cursor: pointer; }
-.umschalter button[aria-pressed="true"] { background: #fff; color: var(--akzent-tief); font-weight: 600; }
+.rm-kopf h1 { margin: 0; font-size: 1.6rem; line-height: 1.15; }
+.rm-kopf .unter { color: rgb(255 255 255 / .75); font-size: 14px; }
 
 .kacheln { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 26px; }
 .kachel { background: rgb(255 255 255 / .09); border: 1px solid rgb(255 255 255 / .16); border-radius: var(--rund); padding: 14px 16px; }
 .kachel .zahl { font-size: 1.9rem; font-weight: 700; line-height: 1.1; }
 .kachel .was { font-size: 13px; color: rgb(255 255 255 / .78); }
 .fortschritt { margin-top: 22px; }
-.fortschritt .zeile { display: flex; justify-content: space-between; font-size: 13px; color: rgb(255 255 255 / .85); margin-bottom: 6px; }
-.balken { height: 10px; border-radius: 999px; background: rgb(255 255 255 / .16); overflow: hidden; display: flex; }
+.fortschritt .fs-zeile { display: flex; gap: 12px; justify-content: space-between; font-size: 13px; color: rgb(255 255 255 / .85); margin-bottom: 6px; }
+.balken { margin-top: 0; height: 10px; border-radius: 999px; background: rgb(255 255 255 / .16); overflow: hidden; display: flex; }
 .balken span { display: block; height: 100%; }
 .balken .b-gut { background: #fff; }
 .balken .b-arbeit { background: rgb(255 255 255 / .55); }
@@ -105,7 +100,7 @@ a.chip:hover { text-decoration: none; border-color: var(--akzent); color: var(--
 .phase h3.phasentitel { font-size: .95rem; margin: 0 0 10px; display: flex; gap: 10px; align-items: center; }
 .phase h3.phasentitel .nr { width: 24px; height: 24px; border-radius: 50%; background: var(--akzent); color: #fff;
   display: grid; place-items: center; font-size: 12px; }
-.phase .hinweis { font-size: 13px; color: var(--leise); margin: -4px 0 10px 34px; }
+.phase .hinweis { font-size: 13px; color: var(--leise); margin: -4px 0 10px; }
 
 .liste { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--rund); overflow: hidden; }
 .liste .eintrag { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 10px 16px; border-top: 1px solid var(--linie); align-items: baseline; font-size: 14px; }
@@ -114,48 +109,65 @@ a.chip:hover { text-decoration: none; border-color: var(--akzent); color: var(--
 .liste .eintrag .titel { font-weight: 600; }
 .liste .eintrag .text { color: var(--leise); display: block; font-weight: 400; font-size: 13px; }
 
-.fuss { margin-top: 40px; color: var(--leise); font-size: 13px; border-top: 1px solid var(--linie); padding-top: 14px; }
+.fuss { margin-top: 40px; padding: 14px 0 0; color: var(--leise); font-size: 13px; border-top: 1px solid var(--linie); }
 
 @media (max-width: 900px) {
   .zeitstrahl, .raster, .raster.drei { grid-template-columns: 1fr; }
   .kacheln { grid-template-columns: repeat(2, 1fr); }
 }
 @media print {
-  .umschalter { display: none; }
-  .kopf { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .umschalter, .nav { display: none; }
+  .rm-kopf { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .release, .karte, .liste .eintrag { break-inside: avoid; }
 }
 </style>
 </head>
 <body>
-<header class="kopf">
-  <div class="kopf-innen">
-    <div class="kopfzeile">
-      <a class="logo" href="/" aria-label="Zur Startseite von Glutnest">
-        <svg viewBox="0 0 24 24"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2.4 1.2-4 2.6-5.4.2 1.6.9 2.7 2 3.4C11 8 11 5 12 2Z"/><path d="M12 21a2.2 2.2 0 0 1-2.2-2.2c0-1.4 1.2-2.3 2.2-3.8 1 1.5 2.2 2.4 2.2 3.8A2.2 2.2 0 0 1 12 21Z"/></svg>
-      </a>
-      <div>
-        <h1>Glutnest – Roadmap</h1>
-        <div class="unter">Feuerwehr-Verwaltung · Stand 15.11.2026 · aktuelle Version 0.22.0</div>
-      </div>
+<header class="nav">
+  <div class="innen">
+    <a class="marke" href="/"><span class="logo"><svg viewBox="0 0 24 24"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2.4 1.2-4 2.6-5.4.2 1.6.9 2.7 2 3.4C11 8 11 5 12 2Z"/><path d="M12 21a2.2 2.2 0 0 1-2.2-2.2c0-1.4 1.2-2.3 2.2-3.8 1 1.5 2.2 2.4 2.2 3.8A2.2 2.2 0 0 1 12 21Z"/></svg></span>Glutnest</a>
+    <div class="menue" id="hauptmenue">
+      <nav class="nav-links" aria-label="Hauptmenü">
+        <a href="/#funktionen">Funktionen</a>
+        <a href="/#rundgang">Rundgang</a>
+        <a href="/#betrieb">Betrieb</a>
+        <a href="/#sicherheit">Sicherheit</a>
+        <a href="/roadmap/" aria-current="page">Roadmap</a>
+        <a href="/doku/">Dokumentation</a>
+        <a href="/#ueber-mich">Über mich</a>
+        <a href="/#kontakt">Kontakt</a>
+      </nav>
       <div class="umschalter" role="group" aria-label="Darstellung">
         <button type="button" data-wert="auto">Auto</button>
         <button type="button" data-wert="hell">Hell</button>
         <button type="button" data-wert="dunkel">Dunkel</button>
       </div>
     </div>
+    <button type="button" class="menue-knopf" aria-expanded="false" aria-controls="hauptmenue" aria-label="Menü öffnen">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="zu" d="M4 7h16M4 12h16M4 17h16"/><path class="auf" d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+</header>
+<header class="rm-kopf">
+  <div class="kopf-innen">
+    <div class="kopfzeile">
+      <div>
+        <h1>Glutnest – Roadmap</h1>
+        <div class="unter">Feuerwehr-Verwaltung · Stand 16.11.2026 · aktuelle Version 0.29.0</div>
+      </div>
+    </div>
 
     <div class="kacheln">
-      <div class="kachel"><div class="zahl">26</div><div class="was">Versionen von 0.1.0 bis 0.22.0</div></div>
-      <div class="kachel"><div class="zahl">31</div><div class="was">Issues erledigt</div></div>
-      <div class="kachel"><div class="zahl">26</div><div class="was">von 33 MVP-Issues fertig</div></div>
-      <div class="kachel"><div class="zahl">19</div><div class="was">geplant, davon 11 „später“</div></div>
+      <div class="kachel"><div class="zahl">36</div><div class="was">Versionen von 0.1.0 bis 0.29.0</div></div>
+      <div class="kachel"><div class="zahl">44</div><div class="was">Issues erledigt</div></div>
+      <div class="kachel"><div class="zahl">36</div><div class="was">von 37 MVP-Issues fertig</div></div>
+      <div class="kachel"><div class="zahl">12</div><div class="was">geplant, davon 11 „später“</div></div>
     </div>
 
     <div class="fortschritt">
-      <div class="zeile"><span>MVP-Umfang (Label „mvp“): 26 von 33 Issues erledigt</span><span>79 %</span></div>
-      <div class="balken" role="img" aria-label="26 von 33 MVP-Issues erledigt">
-        <span class="b-gut" style="width:78.8%"></span>
+      <div class="fs-zeile"><span>MVP-Umfang (Label „mvp“): 36 von 37 Issues erledigt</span><span style="white-space:nowrap">97 %</span></div>
+      <div class="balken" role="img" aria-label="36 von 37 MVP-Issues erledigt">
+        <span class="b-gut" style="width:97.3%"></span>
       </div>
     </div>
   </div>
@@ -171,19 +183,14 @@ a.chip:hover { text-decoration: none; border-color: var(--akzent); color: var(--
 
   <!-- GEPLANT -->
   <section class="abschnitt">
-    <div class="abschnitt-kopf"><span class="punkt p-plan"></span><h2>Geplant</h2><span class="leise">offene MVP-Issues, als Vorschlag in zwei Etappen sortiert</span></div>
+    <div class="abschnitt-kopf"><span class="punkt p-plan"></span><h2>Geplant</h2><span class="leise">was noch fehlt, bis Glutnest verkauft wird</span></div>
 
     <div class="phase">
-      <h3 class="phasentitel"><span class="nr">1</span>Verkaufsreif machen</h3>
-      <p class="hinweis">Was eine Wehr braucht, bevor sie Glutnest kaufen und produktiv nutzen kann.</p>
+      <h3 class="phasentitel">Verkaufsreif machen</h3>
+      <p class="hinweis">Alles andere für den ersten Einsatz bei einer Wehr ist fertig.</p>
       <div class="raster drei" id="phase1"></div>
     </div>
 
-    <div class="phase">
-      <h3 class="phasentitel"><span class="nr">2</span>Module abrunden</h3>
-      <p class="hinweis">Ausgelagerte Reste aus fertigen Modulen.</p>
-      <div class="raster drei" id="phase2"></div>
-    </div>
   </section>
 
   <!-- SPÄTER -->
@@ -192,7 +199,7 @@ a.chip:hover { text-decoration: none; border-color: var(--akzent); color: var(--
     <div class="liste" id="spaeter"></div>
   </section>
 
-  <p class="fuss"><a href="/">← Zur Startseite</a> · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a> · <a href="https://status.glutnest.eu/" rel="noopener">Status</a><br>Erstellt aus der Aufgabenliste, dem Änderungsprotokoll und den Releases von Glutnest (Stand 15.11.2026, 15:00 Uhr). Die Reihenfolge unter „Geplant“ ist ein Vorschlag, keine Festlegung. Die Nummern führen zu den Issues auf GitHub, dort könnt ihr auch Fehler melden und Wünsche äußern.</p>
+  <p class="fuss"><a href="/">← Zur Startseite</a> · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a> · <a href="https://status.glutnest.eu/" rel="noopener">Status</a><br>Erstellt aus der Aufgabenliste, dem Änderungsprotokoll und den Releases von Glutnest (Stand 16.11.2026). Die Reihenfolge unter „Geplant“ ist ein Vorschlag, keine Festlegung. Die Nummern führen zu den Issues auf GitHub, dort könnt ihr auch Fehler melden und Wünsche äußern.</p>
 </main>
 
 <script src="/roadmap/roadmap.js"></script>

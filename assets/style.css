@@ -43,6 +43,12 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .umschalter { display: flex; border: 1px solid var(--linie); border-radius: 999px; padding: 3px; background: var(--flaeche); }
 .umschalter button { border: 0; background: transparent; color: var(--leise); font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 999px; cursor: pointer; }
 .umschalter button[aria-pressed="true"] { background: var(--akzent); color: #fff; font-weight: 600; }
+.menue { display: contents; }
+.menue-knopf { display: none; width: 44px; height: 44px; margin-left: auto; border: 1px solid var(--linie); border-radius: 12px;
+  background: var(--flaeche); color: var(--text); cursor: pointer; place-items: center; padding: 0; }
+.menue-knopf svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.menue-knopf .auf, .nav.offen .menue-knopf .zu { display: none; }
+.nav.offen .menue-knopf .auf { display: inline; }
 
 .knopf { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font-weight: 600;
   text-decoration: none; border: 1px solid transparent; font-size: 15px; }
@@ -176,8 +182,15 @@ section.alt .modul { background: var(--flaeche-2); }
 .platzhalter { background: #fff3cd; color: #5c4400; border-radius: 4px; padding: 0 4px; }
 
 @media (max-width: 960px) {
-  .nav-links { display: none; }
-  .umschalter { margin-left: auto; }
+  /* Handy/Tablet: Menü-Knopf, aufgeklappt Links untereinander und Darstellung darunter */
+  .menue-knopf { display: grid; }
+  .menue { display: none; }
+  .nav.offen .menue { display: block; position: absolute; top: 100%; left: 0; right: 0; background: var(--grund);
+    border-bottom: 1px solid var(--linie); box-shadow: 0 18px 40px rgb(0 0 0 / .18); max-height: calc(100dvh - 64px); overflow-y: auto; }
+  .nav.offen .nav-links { display: flex; flex-direction: column; gap: 0; max-width: var(--breite); margin: 0 auto; padding: 6px 28px 0; }
+  .nav.offen .nav-links a { padding: 13px 2px; font-size: 17px; color: var(--text); border-bottom: 1px solid var(--linie); }
+  .nav.offen .umschalter { width: max-content; margin: 18px 28px 22px; }
+  .nav.offen .umschalter button { font-size: 15px; padding: 7px 16px; }
   .hero .innen, .zeile, .zeile.dreh, .zwei, .roadmap-teaser, .kontakt, .person { grid-template-columns: 1fr; }
   .zeile.dreh .text { order: 0; }
   .module { grid-template-columns: 1fr 1fr; }
