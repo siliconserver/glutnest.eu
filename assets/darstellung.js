@@ -39,3 +39,16 @@
     if (nav && e.key === "Escape") { schalte(nav, false); nav.querySelector(".menue-knopf").focus(); }
   });
 })();
+
+/* Aktuelle Glutnest-Version aus /version.json (wird bei jedem Release automatisch aktualisiert). */
+document.addEventListener("DOMContentLoaded", function () {
+  var ziele = document.querySelectorAll("[data-version]");
+  if (!ziele.length || !window.fetch) return;
+  fetch("/version.json", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var m = d && /^(\d+)\.(\d+)/.exec(d.version || "");
+      if (m) ziele.forEach(function (z) { z.textContent = m[1] + "." + m[2]; });
+    })
+    .catch(function () {});
+});
