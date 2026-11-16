@@ -121,7 +121,7 @@ Ob alles richtig zusammengesetzt ist, zeigt:
 docker compose config
 ```
 
-!!! tip
+!!! tip "Tipp"
     Steht eine Einstellung auch in der `.env`, ändert sie dort. Die Override-Datei ist
     für alles andere gedacht, zum Beispiel Ports, Netzwerke, zusätzliche Ordner oder
     Grenzen für Speicher und CPU.

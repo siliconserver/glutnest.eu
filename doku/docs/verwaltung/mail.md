@@ -28,5 +28,5 @@ Jeder Text kommt mit einer fertigen Vorgabe. Du kannst Betreff und Text ändern.
 zeigt den gespeicherten Text mit Beispieldaten. Mit **Auf Vorgabe zurücksetzen** gilt
 wieder der mitgelieferte Text.
 
-!!! note
+!!! note "Hinweis"
     Der Hinweis zum Abbestellen unter den Erinnerungen wird immer angehängt.

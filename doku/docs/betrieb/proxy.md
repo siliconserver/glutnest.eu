@@ -37,5 +37,5 @@ glutnest.example.org {
 }
 ```
 
-!!! warning
+!!! warning "Achtung"
     Port 8000 darf nicht direkt aus dem Internet erreichbar sein.
